@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 417620}
   - 33: {fileID: 3376188}
   - 23: {fileID: 2385900}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 462618}
   - 33: {fileID: 3365598}
   - 23: {fileID: 2379396}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 108: {fileID: 10838886}
   - 82: {fileID: 8235126}
   - 114: {fileID: 11473204}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Gun Barel End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 33: {fileID: 3345644}
   - 136: {fileID: 13642482}
   - 23: {fileID: 2373258}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - 33: {fileID: 3348922}
   - 136: {fileID: 13604518}
   - 23: {fileID: 2375976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - 33: {fileID: 3375776}
   - 136: {fileID: 13638362}
   - 23: {fileID: 2309904}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - 33: {fileID: 3315334}
   - 136: {fileID: 13669004}
   - 23: {fileID: 2368304}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - 4: {fileID: 409108}
   - 33: {fileID: 3356776}
   - 23: {fileID: 2338610}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - 33: {fileID: 3303808}
   - 136: {fileID: 13675694}
   - 23: {fileID: 2341004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491094}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - 33: {fileID: 3380198}
   - 136: {fileID: 13626684}
   - 23: {fileID: 2311708}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - 4: {fileID: 496142}
   - 33: {fileID: 3383564}
   - 23: {fileID: 2301620}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 480128}
   - 114: {fileID: 11402540}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,8 +236,7 @@ GameObject:
   - 4: {fileID: 476678}
   - 33: {fileID: 3316758}
   - 23: {fileID: 2357858}
-  - 65: {fileID: 6531212}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +253,9 @@ GameObject:
   - 4: {fileID: 439108}
   - 195: {fileID: 19507466}
   - 114: {fileID: 11441544}
-  m_Layer: 8
+  - 65: {fileID: 65000013879300856}
+  - 114: {fileID: 114000012004779122}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +270,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444046}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +285,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444710}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,18 +925,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158526}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6531212
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164018}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8235126
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1055,19 +1044,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658233e03104646ffaa0680e766d9c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 0.01
+  turnSpeed: 0.001
 --- !u!114 &11441544
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174206}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba960ed0e14ef4773bbe8ddb754c9880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   navAgent: {fileID: 19507466}
 --- !u!114 &11473204
 MonoBehaviour:
@@ -1080,9 +1068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26641f5dd3512490682bb53a6c2aa02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  damagePerShot: 10
-  timeBetweenBullets: 0.15
+  damagePerShot: 5
+  timeBetweenBullets: 0.1
   gunLine: {fileID: 12006956}
   gunLight: {fileID: 10838886}
   gunAudio: {fileID: 8235126}
@@ -1237,3 +1224,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174206}
   m_IsPrefabParent: 1
+--- !u!65 &65000013879300856
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5101862, y: 1.0738425, z: 2.7386563}
+  m_Center: {x: -0.00000047683716, y: 0.53368044, z: -0.063773036}
+--- !u!114 &114000012004779122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288fd249441ce4b97b4fc0aabf3e2ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  _renderer: {fileID: 2357858}
+  fullHealthColor: {r: 1, g: 0, b: 0, a: 0}
+  zeroHealthColor: {r: 1, g: 1, b: 1, a: 0}

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour
 {
-	[SerializeField] GameObject player;
-
 	public int damagePerShot = 10;
 	public float timeBetweenBullets = 0.15f;
 
+	GameObject player;
+	PlayerHealth playerHealth;
+	
 	float timer;
 	Ray shootRay;
 	RaycastHit shootHit;
@@ -15,6 +16,12 @@ public class EnemyShooting : MonoBehaviour
 	[SerializeField] LineRenderer gunLine;
 	[SerializeField] Light gunLight;
 	[SerializeField] AudioSource gunAudio;
+
+	void Awake ()
+	{
+		player = GameObject.FindWithTag ("Player");
+		playerHealth = player.GetComponent<PlayerHealth> ();
+	}
 
 	void Update ()
 	{
@@ -49,11 +56,8 @@ public class EnemyShooting : MonoBehaviour
 		shootRay.origin = transform.position;
 		shootRay.direction = transform.forward;
 
-		// Try and find an EnemyHealth script on the gameobject hit.
-
-		// If the EnemyHealth component exist...
-		if (false) {
-			// ... the enemy should take damage.
+		if (playerHealth != null) {
+			playerHealth.TakeDamage (damagePerShot);
 		}
 
 		gunLine.SetPosition (1, shootHit.point);

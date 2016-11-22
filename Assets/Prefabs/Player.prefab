@@ -222,9 +222,10 @@ GameObject:
   - 65: {fileID: 65000012568861130}
   - 143: {fileID: 14359002}
   - 114: {fileID: 11482852}
+  - 114: {fileID: 114000014042254198}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,6 +502,7 @@ Transform:
   - {fileID: 416936}
   - {fileID: 459778}
   - {fileID: 437144}
+  - {fileID: 4000011034154266}
   m_Father: {fileID: 409188}
   m_RootOrder: 0
 --- !u!4 &489218
@@ -1067,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8fc591110434bbeaf83fdffb227eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerShot: 20
+  damagePerShot: 10
   timeBetweenBullets: 0.05
   range: 100
   gunLine: {fileID: 12005278}
@@ -1085,9 +1087,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airRes: 0
-  groundRes: 90
-  speed: 20
-  gravity: 20
+  groundRes: 45
+  speed: 15
+  gravity: 15
 --- !u!120 &12005278
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1236,6 +1238,34 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167106}
   m_IsPrefabParent: 1
+--- !u!1 &1000012607086068
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011034154266}
+  m_Layer: 8
+  m_Name: Target
+  m_TagString: PlayerTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000011034154266
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012607086068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.674, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 486142}
+  m_RootOrder: 5
 --- !u!65 &65000012568861130
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1248,3 +1278,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5194275, y: 1.032464, z: 2.7287195}
   m_Center: {x: 0, y: 0.5275433, z: -0.06087029}
+--- !u!114 &114000014042254198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a71c093dd0d4904ac8b5fda77ee7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  bloodSplatter: {fileID: 0}

@@ -62,11 +62,10 @@ public class PlayerShooting : MonoBehaviour
 		shootRay.direction = transform.forward;
 
 		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
-			// Try and find an EnemyHealth script on the gameobject hit.
+			EnemyHealth enemyHealth = shootHit.collider.gameObject.GetComponent<EnemyHealth>();
 
-			// If the EnemyHealth component exist...
-			if (false) {
-				// ... the enemy should take damage.
+			if (enemyHealth != null) {
+				enemyHealth.TakeDamage (damagePerShot);
 			}
 				
 			gunLine.SetPosition (1, shootHit.point);
