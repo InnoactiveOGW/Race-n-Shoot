@@ -1044,14 +1044,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658233e03104646ffaa0680e766d9c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 0.001
+  turnSpeed: 0.0025
 --- !u!114 &11441544
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba960ed0e14ef4773bbe8ddb754c9880, type: 3}
   m_Name: 
@@ -1070,6 +1070,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerShot: 5
   timeBetweenBullets: 0.1
+  bulletsPerBurst: 3
+  timeBetweenBursts: 0.5
+  range: 20
   gunLine: {fileID: 12006956}
   gunLight: {fileID: 10838886}
   gunAudio: {fileID: 8235126}

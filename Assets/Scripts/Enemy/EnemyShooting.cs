@@ -3,13 +3,20 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour
 {
-	public int damagePerShot = 10;
-	public float timeBetweenBullets = 0.15f;
+	public int damagePerShot = 5;
+	public float timeBetweenBullets = 0.166f;
+	public float bulletsPerBurst = 3;
+	public float timeBetweenBursts = 0.5f;
+
+	public float range = 20;
 
 	GameObject player;
 	PlayerHealth playerHealth;
 	
-	float timer;
+	float burstTimer;
+	float bulletTimer;
+	float bulletCounter;
+
 	Ray shootRay;
 	RaycastHit shootHit;
 	int shootableMask;
@@ -25,10 +32,17 @@ public class EnemyShooting : MonoBehaviour
 
 	void Update ()
 	{
-		timer += Time.deltaTime;
+		bulletTimer += Time.deltaTime;
+		burstTimer += Time.deltaTime;
+
+		if (burstTimer >= timeBetweenBursts) {
+			burstTimer = 0f;
+		} else {
+
+		}
 		
 		shootRay = new Ray (transform.position, transform.forward);
-		if (timer >= timeBetweenBullets && Physics.Raycast (shootRay, out shootHit) && shootHit.collider.gameObject == player) {
+		if (bulletTimer >= timeBetweenBullets && Physics.Raycast (shootRay, out shootHit, range) && shootHit.collider.gameObject == player) {
 			Shoot ();
 		} else {
 			DisableEffects ();
@@ -43,7 +57,8 @@ public class EnemyShooting : MonoBehaviour
 
 	void Shoot ()
 	{
-		timer = 0f;
+		bulletTimer = 0f;
+		bulletCounter += 1;
 
 		gunAudio.Play ();
 

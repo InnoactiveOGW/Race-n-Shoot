@@ -10,7 +10,7 @@ public class EnemyHealth : Health
 	public override void OnDeath ()
 	{
 		base.OnDeath ();
-		gameObject.SetActive (false);
+//		gameObject.SetActive (false);
 	}
 
 	public override void SetHealthUI ()
