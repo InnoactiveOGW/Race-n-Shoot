@@ -5,82 +5,103 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject enemy;
-	public GameObject armouredEnemy;
+    public GameObject enemy;
+    public GameObject armouredEnemy;
 
-	public Transform[] spawns;
-	public float waveCount;
+    public Transform[] spawns;
+    float waveCount;
+    float enemyCount;
 
-	public float startWait;
-	public float spawnWait;
-	public float waveWait;
+    public float waveWait;
+    public float spawnWait;
 
-	public Text scoreText;
-	public Text restartText;
-	public Text gameOverText;
+    public Text scoreText;
+    public Text waveText;
+    public Text gameOverText;
+    public Text restartText;
 
-	private int score;
-	private bool gameOver;
-	private bool restart;
+    private int score;
+    private bool restart;
 
-	void Start ()
-	{
-		gameOver = false;
-		restart = false;
-		restartText.text = "";
-		gameOverText.text = "";
-		score = 0;
-		UpdateScore ();
-	}
+    void Awake()
+    {
+        waveText.text = "";
+        gameOverText.text = "";
+        restartText.text = "";
+        UpdateScore();
+    }
 
-	void Update ()
-	{
-		if (gameOver) {
-			restartText.text = "Press 'R' for Restart";
-			restart = true;
-			break;
-		}
+    void Start()
+    {
+        StartCoroutine(SpawnWave());
+    }
 
-		if (restart) {
-			if (Input.GetKeyDown (KeyCode.R)) {
-				SceneManager.LoadScene ("Map1");
-			}
-		}
+    void Update()
+    {
+        if (restart)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("Map1");
+            }
+        }
+    }
 
-		StartCoroutine (SpawnWave ());
-	}
+    IEnumerator SpawnWave()
+    {
+        waveCount += 1;
+        waveText.text = "Wave " + waveCount;
+        yield return new WaitForSeconds(waveWait);
+        waveText.text = "";
 
-	IEnumerator SpawnWave ()
-	{
-		yield return new WaitForSeconds (waveWait);
+        for (int i = 0; i < waveCount; i++)
+        {
+            Transform spawn = spawns[i % 3];
 
-		waveCount += 1;
-		for (int i = 0; i < waveCount; i++) {
-			Transform spawn = spawns [i % 3];
+            if (i % 3 == 0)
+            {
+                Instantiate(armouredEnemy, spawn.position, spawn.rotation);
+            }
+            else
+            {
+                Instantiate(enemy, spawn.position, spawn.rotation);
+            }
 
-			if (i % 3 == 0) {
-				Instantiate (armouredEnemy, spawn.position, spawn.rotation);
-			} else {
-				Instantiate (enemy, spawn.position, spawn.rotation);
-			}
-			yield return null;
-		}
-	}
+            enemyCount += 1;
 
-	public void AddScore (int newScoreValue)
-	{
-		score += newScoreValue;
-		UpdateScore ();
-	}
+            yield return new WaitForSeconds(spawnWait);
+        }
 
-	void UpdateScore ()
-	{
-		scoreText.text = "Score: " + score;
-	}
+    }
 
-	public void GameOver ()
-	{
-		gameOverText.text = "Game Over!";
-		gameOver = true;
-	}
+    void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
+    }
+
+    IEnumerator GameOver()
+    {
+        gameOverText.text = "Game Over!";
+        yield return new WaitForSeconds(3);
+        gameOverText.text = "";
+        restartText.text = "Press 'R' for Restart";
+        restart = true;
+    }
+
+    public void EnemyKilled(int value)
+    {
+        score += value;
+        UpdateScore();
+
+        enemyCount -= 1;
+        if (enemyCount == 0)
+        {
+            StartCoroutine(SpawnWave());
+        }
+    }
+
+    public void PlayerDied()
+    {
+        StartCoroutine(GameOver());
+    }
 }

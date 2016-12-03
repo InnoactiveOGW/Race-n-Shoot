@@ -1291,6 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  regenSpeed: 1
   bloodPulse: {fileID: 0}
   bloodSplatter1: {fileID: 0}
   bloodSplatter2: {fileID: 0}

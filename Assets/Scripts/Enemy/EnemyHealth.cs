@@ -3,18 +3,30 @@ using System.Collections;
 
 public class EnemyHealth : Health
 {
-	[SerializeField] Renderer _renderer;
-	[SerializeField] Color fullHealthColor;
-	[SerializeField] Color zeroHealthColor;
+    private GameController gameController;
 
-	public override void OnDeath ()
-	{
-		base.OnDeath ();
-//		gameObject.SetActive (false);
-	}
+    [SerializeField]
+    private Renderer _renderer;
+    [SerializeField]
+    private Color fullHealthColor;
+    [SerializeField]
+    private Color zeroHealthColor;
 
-	public override void SetHealthUI ()
-	{
-		_renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
-	}
+    void Awake()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
+
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        //TODO: real enemy value
+        gameController.EnemyKilled(10);
+        Destroy(gameObject);
+    }
+
+    public override void SetHealthUI()
+    {
+        _renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
+    }
 }
