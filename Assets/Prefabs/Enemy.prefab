@@ -390,11 +390,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: 0, z: 0}
+  m_LocalPosition: {x: -25.25, y: 0, z: 18.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 444710}
+  - {fileID: 4000014204435022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &443372
@@ -1044,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658233e03104646ffaa0680e766d9c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 0.0025
+  turnSpeed: 0.00125
 --- !u!114 &11441544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,16 +1064,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113562}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26641f5dd3512490682bb53a6c2aa02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerShot: 5
-  timeBetweenBullets: 0.1
+  timeBetweenBursts: 1
   bulletsPerBurst: 3
-  timeBetweenBursts: 0.5
-  range: 20
+  timeBetweenBullets: 0.166
+  damagePerShot: 5
   gunLine: {fileID: 12006956}
   gunLight: {fileID: 10838886}
   gunAudio: {fileID: 8235126}
@@ -1227,6 +1227,34 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174206}
   m_IsPrefabParent: 1
+--- !u!1 &1000013270154878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014204435022}
+  m_Layer: 10
+  m_Name: Target
+  m_TagString: EnemyTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000014204435022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013270154878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.675, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 439108}
+  m_RootOrder: 1
 --- !u!65 &65000013879300856
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1250,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288fd249441ce4b97b4fc0aabf3e2ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 50
   currentHealth: 0
   _renderer: {fileID: 2357858}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0}

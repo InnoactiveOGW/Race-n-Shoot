@@ -300,11 +300,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.33, z: -8.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 486142}
+  - {fileID: 4000011034154266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &414192
@@ -502,7 +503,6 @@ Transform:
   - {fileID: 416936}
   - {fileID: 459778}
   - {fileID: 437144}
-  - {fileID: 4000011034154266}
   m_Father: {fileID: 409188}
   m_RootOrder: 0
 --- !u!4 &489218
@@ -1058,6 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa1691293cee4d76a57e004f43cd2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunBarrelEnd: {fileID: 454872}
 --- !u!114 &11442060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1087,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airRes: 0
-  groundRes: 45
+  groundRes: 60
   speed: 15
   gravity: 15
 --- !u!120 &12005278
@@ -1240,7 +1241,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1000012607086068
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -1259,13 +1260,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012607086068}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.674, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 486142}
-  m_RootOrder: 5
+  m_Father: {fileID: 409188}
+  m_RootOrder: 1
 --- !u!65 &65000012568861130
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1291,7 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  regenSpeed: 1
+  regenSpeed: 5
   bloodPulse: {fileID: 0}
   bloodSplatter1: {fileID: 0}
   bloodSplatter2: {fileID: 0}

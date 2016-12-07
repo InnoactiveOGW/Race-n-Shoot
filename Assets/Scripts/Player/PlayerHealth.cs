@@ -45,6 +45,12 @@ public class PlayerHealth : Health
         SetHealthUI();
     }
 
+    public void ResetHealth()
+    {
+        currentHealth = startingHealth;
+        SetHealthUI();
+    }
+
     public override void OnDeath()
     {
         base.OnDeath();

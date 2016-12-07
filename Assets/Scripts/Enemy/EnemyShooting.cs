@@ -3,19 +3,21 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public int damagePerShot = 5;
-    public float timeBetweenBullets = 0.166f;
-    public float bulletsPerBurst = 3;
-    public float timeBetweenBursts = 0.5f;
+    [SerializeField]
+    private float timeBetweenBursts = 1f;
+    [SerializeField]
+    private float bulletsPerBurst = 3;
+    [SerializeField]
+    private float timeBetweenBullets = 0.166f;
+    [SerializeField]
+    private int damagePerShot = 5;
 
-    public float range = 20;
+    float range = 20;
 
     [SerializeField]
     private LineRenderer gunLine;
-
     [SerializeField]
     private Light gunLight;
-
     [SerializeField]
     private AudioSource gunAudio;
 
@@ -38,17 +40,23 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        bulletTimer += Time.deltaTime;
-        burstTimer += Time.deltaTime;
-
-        if (burstTimer >= timeBetweenBursts)
+        if (bulletCounter >= bulletsPerBurst)
         {
+            bulletCounter = 0;
             burstTimer = 0f;
-        }
-        else
-        {
 
+            DisableEffects();
+            return;
         }
+
+        burstTimer += Time.deltaTime;
+        if (burstTimer < timeBetweenBursts)
+        {
+            DisableEffects();
+            return;
+        }
+
+        bulletTimer += Time.deltaTime;
 
         shootRay = new Ray(transform.position, transform.forward);
         if (bulletTimer >= timeBetweenBullets && Physics.Raycast(shootRay, out shootHit, range) && shootHit.collider.gameObject == player)
