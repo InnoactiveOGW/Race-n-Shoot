@@ -24,6 +24,9 @@ public class PlayerHealth : Health
     private Color splatterLow;
     private Color splatterFull;
 
+    [HideInInspector]
+    public float invincibilityTimer;
+
     void Awake()
     {
         gameController = FindObjectOfType<GameController>();
@@ -37,6 +40,11 @@ public class PlayerHealth : Health
 
     void Update()
     {
+        if (invincibilityTimer > 0f)
+        {
+            invincibilityTimer = Mathf.Max(0f, invincibilityTimer - Time.deltaTime);
+        }
+
         if (currentHealth < startingHealth)
         {
             currentHealth = Mathf.Clamp(currentHealth + Time.deltaTime * regenSpeed, 0f, startingHealth);
@@ -51,11 +59,19 @@ public class PlayerHealth : Health
         SetHealthUI();
     }
 
+    public virtual void TakeDamage(float amount)
+    {
+        if (invincibilityTimer > 0f)
+            return;
+
+        base.TakeDamage(amount);
+    }
+
     public override void OnDeath()
     {
         base.OnDeath();
         gameController.PlayerDied();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public override void SetHealthUI()

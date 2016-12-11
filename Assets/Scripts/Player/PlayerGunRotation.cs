@@ -62,6 +62,9 @@ public class PlayerGunRotation : MonoBehaviour
             }
         }
 
+        if (Mathf.Abs(minHorizontalAngle) > 30f)
+            return 0f;
+
         float verticalAngle = -enemyVectors[closestEnemyIndex].normalized.y;
         return Mathf.Clamp(verticalAngle, -0.2f, 0.2f);
     }

@@ -17,16 +17,16 @@ public class EnemyHealth : Health
         gameController = FindObjectOfType<GameController>();
     }
 
+    public override void SetHealthUI()
+    {
+        _renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
+    }
+
     public override void OnDeath()
     {
         base.OnDeath();
         //TODO: real enemy value
         gameController.EnemyKilled(10);
         Destroy(gameObject);
-    }
-
-    public override void SetHealthUI()
-    {
-        _renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
     }
 }

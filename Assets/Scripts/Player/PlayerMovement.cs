@@ -3,29 +3,47 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float airRes = 0f;
-    public float groundRes = 10f;
+    [SerializeField]
+    private float airRes;
+    [SerializeField]
+    private float groundRes;
+    [SerializeField]
+    private float normalSpeed;
 
-    public float speed = 30.0f;
-    Vector3 movDir = Vector3.zero;
-    float xSpeed = 0f;
-    float zSpeed = 0f;
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
+    public float speedBoostTimer;
 
-    float curDir = 0f;
-    Vector3 curNormal = Vector3.up;
+    private Vector3 movDir = Vector3.zero;
+    private float xSpeed = 0f;
+    private float zSpeed = 0f;
+
+    private float curDir = 0f;
+    private Vector3 curNormal = Vector3.up;
 
     public float gravity = 30f;
-    float vertSpeed = 0f;
+    private float vertSpeed = 0f;
 
-    CharacterController cController;
+    private CharacterController cController;
 
     void Awake()
     {
+        speed = normalSpeed;
         cController = GetComponent<CharacterController>();
     }
 
     void Update()
     {
+        if (speedBoostTimer > 0f)
+        {
+            speedBoostTimer = Mathf.Max(0f, speedBoostTimer - Time.deltaTime);
+            if (speedBoostTimer == 0f)
+            {
+                speed = normalSpeed;
+            }
+        }
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 

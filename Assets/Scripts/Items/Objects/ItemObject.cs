@@ -7,6 +7,7 @@ public class ItemObject : MonoBehaviour
 
     [SerializeField]
     private ItemType itemType;
+
     [SerializeField]
     private float respawnTime;
     private float respawnTimer;
