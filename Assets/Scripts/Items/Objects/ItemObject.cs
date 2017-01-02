@@ -6,7 +6,7 @@ public class ItemObject : MonoBehaviour
     private ItemsController itemsController;
 
     [SerializeField]
-    private ItemType itemType;
+    private CollectableType collectableType;
 
     [SerializeField]
     private float respawnTime;
@@ -36,11 +36,11 @@ public class ItemObject : MonoBehaviour
         if (other.gameObject.tag != "Player")
             return;
 
-        if (itemsController.CanCollectItem(itemType))
+        if (itemsController.CanCollectItem(collectableType))
         {
             GetComponent<BoxCollider>().enabled = false;
             GetComponent<MeshRenderer>().enabled = false;
-            itemsController.CollectItem(itemType);
+            itemsController.CollectItem(collectableType);
         }
     }
 }

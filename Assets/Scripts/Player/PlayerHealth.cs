@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : Health
+public class PlayerHealth : DestructableObject
 {
     private GameController gameController;
 
@@ -76,6 +76,8 @@ public class PlayerHealth : Health
 
     public override void SetHealthUI()
     {
+        base.SetHealthUI();
+
         bloodSplatter1.SetActive(currentHealth / startingHealth <= 0.75f);
         bloodSplatter2.SetActive(currentHealth / startingHealth <= 0.50f);
         bloodSplatter3.SetActive(currentHealth / startingHealth <= 0.25f);

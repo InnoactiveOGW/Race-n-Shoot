@@ -1,13 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
+public enum CollectableType
+{
+    Random,
+    HealthPack,
+    AmunitionPack,
+    Count
+};
+
 public enum ItemType
 {
     None,
     HealthPack,
+    AmunitionPack,
     Invincibility,
     SpeedBoost,
-    AmunitionPack
+    Count
 };
 
 
@@ -41,11 +50,11 @@ public class ItemsController : MonoBehaviour
         }
     }
 
-    public bool CanCollectItem(ItemType itemType)
+    public bool CanCollectItem(CollectableType collectableType)
     {
-        switch (itemType)
+        switch (collectableType)
         {
-            case ItemType.HealthPack:
+            case CollectableType.HealthPack:
                 return playerHealth.currentHealth < playerHealth.startingHealth;
 
             default:
@@ -53,10 +62,27 @@ public class ItemsController : MonoBehaviour
         }
     }
 
-    public void CollectItem(ItemType itemType)
+    public void CollectItem(CollectableType collectableType)
     {
+        ItemType itemType = ItemType.None;
+        switch (collectableType)
+        {
+            case CollectableType.Random:
+                int i = Random.Range(0, (int)ItemType.Count);
+                itemType = (ItemType)i;
+                break;
+
+            case CollectableType.HealthPack:
+                itemType = ItemType.HealthPack;
+                break;
+
+            case CollectableType.AmunitionPack:
+                itemType = ItemType.AmunitionPack;
+                break;
+        }
+
         currentItem = itemType;
-        if (itemType == ItemType.HealthPack)
+        if (collectableType != CollectableType.Random)
         {
             UseCurrentItem();
         }

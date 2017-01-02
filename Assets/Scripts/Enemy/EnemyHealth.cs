@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHealth : Health
+public class EnemyHealth : DestructableObject
 {
     private GameController gameController;
 
@@ -19,6 +19,7 @@ public class EnemyHealth : Health
 
     public override void SetHealthUI()
     {
+        base.SetHealthUI();
         _renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
     }
 
