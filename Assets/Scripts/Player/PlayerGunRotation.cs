@@ -22,7 +22,6 @@ public class PlayerGunRotation : MonoBehaviour
         Vector3 dir = Vector3.zero - new Vector3(stick.x, verticalAngle, stick.z);
         // dir = new Vector3(dir.z, dir.x, dir.y);
         Quaternion newRotation = Quaternion.LookRotation(dir);
-        Debug.Log("newRotation: " + newRotation.eulerAngles);
         transform.rotation = newRotation;
     }
 

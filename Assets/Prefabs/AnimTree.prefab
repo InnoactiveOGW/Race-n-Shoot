@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  renderer: {fileID: 137000013970228364}
+  smRenderer: {fileID: 137000013970228364}
 --- !u!137 &137000013970228364
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

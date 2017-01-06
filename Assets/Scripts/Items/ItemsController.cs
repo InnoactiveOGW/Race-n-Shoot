@@ -68,7 +68,7 @@ public class ItemsController : MonoBehaviour
         switch (collectableType)
         {
             case CollectableType.Random:
-                int i = Random.Range(0, (int)ItemType.Count);
+                int i = Random.Range(3, (int)ItemType.Count);
                 itemType = (ItemType)i;
                 break;
 
