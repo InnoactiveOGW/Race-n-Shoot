@@ -12,7 +12,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField]
     private int damagePerShot = 5;
 
-    float range = 20;
+    private const float range = 20;
 
     [SerializeField]
     private LineRenderer gunLine;
@@ -40,6 +40,9 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
+        if (playerHealth.isDead)
+            enabled = false;
+
         if (bulletCounter >= bulletsPerBurst)
         {
             bulletCounter = 0;

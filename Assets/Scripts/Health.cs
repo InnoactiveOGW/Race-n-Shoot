@@ -4,9 +4,8 @@ using UnityEngine.UI;
 public abstract class Health : MonoBehaviour
 {
     public float startingHealth;
-
     public float currentHealth;
-    bool isDead;
+    public bool isDead;
 
     void OnEnable()
     {
@@ -23,14 +22,12 @@ public abstract class Health : MonoBehaviour
 
         if (currentHealth <= 0f && !isDead)
         {
+            isDead = true;
             OnDeath();
         }
     }
 
-    public virtual void OnDeath()
-    {
-        isDead = true;
-    }
+    public abstract void OnDeath();
 
     public abstract void SetHealthUI();
 }

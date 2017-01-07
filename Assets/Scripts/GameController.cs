@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     private Transform mainCamerPostionNoVR;
 
     [SerializeField]
-    private GameObject player;
+    private PlayerController playerController;
     [SerializeField]
     private GameObject enemy;
     [SerializeField]
@@ -42,8 +42,6 @@ public class GameController : MonoBehaviour
     private Transform upgradeCamerPostionNoVR;
     [SerializeField]
     private Transform upgradeCarPostion;
-    [SerializeField]
-    private float carTranslationTime;
 
     private int score;
     private bool restart;
@@ -118,6 +116,8 @@ public class GameController : MonoBehaviour
 
     private void WaveFinished()
     {
+        playerController.ResetHealth();
+
         if (waveCount % 1 == 0)
         {
             ShowUpgrades();
@@ -136,10 +136,8 @@ public class GameController : MonoBehaviour
         Camera.main.transform.transform.localRotation = Quaternion.identity;
         Camera.main.transform.transform.localPosition = Vector3.zero;
 
-        player.GetComponent<PlayerController>().EnableInteraction(false);
-
-        player.transform.parent = upgradeCarPostion;
-        StartCoroutine(MoveCar());
+        playerController.EnableInteraction(false);
+        playerController.MoveTo(upgradeCarPostion);
 
         upgradeController.enabled = true;
     }
@@ -153,27 +151,10 @@ public class GameController : MonoBehaviour
         Camera.main.transform.transform.localRotation = Quaternion.identity;
         Camera.main.transform.transform.localPosition = Vector3.zero;
 
-        player.transform.parent = null;
-        StartCoroutine(MoveCar());
-
-        player.GetComponent<PlayerController>().EnableInteraction(true);
+        playerController.MoveTo(null);
+        playerController.EnableInteraction(true);
 
         StartCoroutine(SpawnWave());
-    }
-
-    private IEnumerator MoveCar()
-    {
-        Vector3 startPosition = player.transform.localPosition;
-        Quaternion startRotation = player.transform.localRotation;
-
-        float timeMoved = 0;
-        while (timeMoved < carTranslationTime)
-        {
-            timeMoved += Time.deltaTime;
-            player.transform.transform.localPosition = Vector3.Lerp(startPosition, Vector3.zero, timeMoved / carTranslationTime);
-            player.transform.transform.localRotation = Quaternion.Lerp(startRotation, Quaternion.identity, timeMoved / carTranslationTime);
-            yield return null;
-        }
     }
 
     public void PlayerDied()

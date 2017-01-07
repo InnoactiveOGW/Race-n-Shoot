@@ -19,7 +19,6 @@ public class DestructableObject : Health
 
     public override void OnDeath()
     {
-        base.OnDeath();
         gameObject.SetActive(false);
     }
 }

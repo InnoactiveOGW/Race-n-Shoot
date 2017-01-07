@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerGunRotation : MonoBehaviour
 {
-    [SerializeField]
-    private Transform gunBarrelEnd;
+    [HideInInspector]
+    public Transform gunBarrelEnd;
 
     void Update()
     {
