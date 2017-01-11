@@ -35,8 +35,8 @@ public class PlayerHealth : DestructableObject
     public float invincibilityTimer;
 
     private bool hasArmor = false;
-    private float startingArmor;
-    private float currentArmor;
+    public float startingArmor;
+    public float currentArmor;
 
     [SerializeField]
     private GameObject frontArmor;
@@ -60,6 +60,9 @@ public class PlayerHealth : DestructableObject
         splatterLow.a = 90f / 255f;
         splatterFull = bloodPulse.color;
         splatterFull.a = 180f / 255f;
+
+        startingArmor = 0f;
+        currentArmor = 0f;
     }
 
     void Update()
@@ -167,6 +170,11 @@ public class PlayerHealth : DestructableObject
 
             float sideArmorHealth = (1 - ((currentArmor - sideArmorBoundary) / (frontArmorBoundary - sideArmorBoundary))) * 100;
             sideArmor.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, sideArmorHealth);
+        }
+        else
+        {
+            backArmor.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0);
+            sideArmor.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0);
         }
     }
 

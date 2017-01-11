@@ -59,9 +59,13 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -curNormal, out hit))
         {
+            Vector3 cameraDirection = Camera.main.transform.forward;
+            Vector3 cameraFlatDirection = new Vector3(cameraDirection.x, 0f, cameraDirection.z);
+            float viewAngle = Vector3.Angle(new Vector3(0f, 0f, 1f), cameraFlatDirection);
+
             curNormal = Vector3.Lerp(curNormal, hit.normal, 4 * Time.deltaTime);
             Quaternion grndTilt = Quaternion.FromToRotation(Vector3.up, curNormal);
-            transform.rotation = grndTilt * Quaternion.Euler(0, curDir, 0);
+            transform.rotation = grndTilt * Quaternion.Euler(0, curDir + viewAngle, 0);
         }
 
         if (inputDir == Vector3.zero && (movDir.x != 0 || movDir.z != 0))

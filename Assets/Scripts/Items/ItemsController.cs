@@ -55,7 +55,7 @@ public class ItemsController : MonoBehaviour
         switch (collectableType)
         {
             case CollectableType.HealthPack:
-                return playerHealth.currentHealth < playerHealth.startingHealth;
+                return playerHealth.currentArmor < playerHealth.startingArmor || playerHealth.currentHealth < playerHealth.startingHealth;
 
             default:
                 return currentItem == ItemType.None;

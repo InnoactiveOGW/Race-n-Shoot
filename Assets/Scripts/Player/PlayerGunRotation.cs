@@ -16,13 +16,23 @@ public class PlayerGunRotation : MonoBehaviour
 
         Vector3 stick = new Vector3(x, 0f, z).normalized;
 
+        Vector3 cameraDirection = Camera.main.transform.forward;
+        Vector3 cameraFlatDirection = new Vector3(cameraDirection.x, 0f, cameraDirection.z).normalized;
+        float viewAngle = Vector3.Angle(new Vector3(0f, 0f, 1f), cameraFlatDirection);
+
+        stick = Quaternion.Euler(0f, viewAngle, 0f) * stick;
+
         Vector3[] enemyVectors = getEnemyVectors();
         float verticalAngle = getVerticalAngleToClosestEnemy(enemyVectors);
 
         Vector3 dir = Vector3.zero - new Vector3(stick.x, verticalAngle, stick.z);
-        // dir = new Vector3(dir.z, dir.x, dir.y);
+
+
         Quaternion newRotation = Quaternion.LookRotation(dir);
+
         transform.rotation = newRotation;
+
+        // transform.Rotate(new Vector3(0f, viewAngle, 0f));
     }
 
     // Create vectors from gun barrel end to enemies.

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameController : MonoBehaviour
     private GameObject enemy;
     [SerializeField]
     private GameObject armouredEnemy;
+
+    private List<GameObject> enemies;
 
     [SerializeField]
     private Transform[] spawns;
@@ -77,17 +80,23 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(waveWait);
         waveText.text = "";
 
+        if (waveCount > 1)
+            foreach (GameObject enemy in enemies)
+                Destroy(enemy);
+        enemies = new List<GameObject>();
+
         for (int i = 0; i < waveCount; i++)
         {
             Transform spawn = spawns[i % 3];
 
             if (i > 0 && i % 3 == 0)
             {
-                Instantiate(armouredEnemy, spawn.position, spawn.rotation);
+
+                enemies.Add((GameObject)Instantiate(armouredEnemy, spawn.position, spawn.rotation));
             }
             else
             {
-                Instantiate(enemy, spawn.position, spawn.rotation);
+                enemies.Add((GameObject)Instantiate(enemy, spawn.position, spawn.rotation));
             }
 
             enemyCount += 1;
@@ -118,7 +127,7 @@ public class GameController : MonoBehaviour
     {
         playerController.ResetHealth();
 
-        if (waveCount % 1 == 0)
+        if (!upgradeController.hasAllUpgrades && waveCount % 5 == 0)
         {
             ShowUpgrades();
         }

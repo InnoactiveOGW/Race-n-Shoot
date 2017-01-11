@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: 6bae13e34826849dd96cf8d03ead94d6
+timeCreated: 1484147546
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Cube.007
+    100004: Cylinder.013
+    100006: Cylinder.018
+    100008: //RootNode
+    100010: enemy-tires.001
+    100012: enemy-tires.002
+    100014: fire-big-2
+    100016: fire-high
+    100018: fire-small
+    100020: main
+    100022: main_end
+    100024: robot
+    100026: robot_end
+    100028: tire1
+    100030: tire1_end
+    100032: tire2
+    100034: tire2_end
+    100036: tube
+    100038: tube_end
+    100040: weapon
+    100042: weapon4
+    100044: weapon_end
+    400000: Armature
+    400002: Cube.007
+    400004: Cylinder.013
+    400006: Cylinder.018
+    400008: //RootNode
+    400010: enemy-tires.001
+    400012: enemy-tires.002
+    400014: fire-big-2
+    400016: fire-high
+    400018: fire-small
+    400020: main
+    400022: main_end
+    400024: robot
+    400026: robot_end
+    400028: tire1
+    400030: tire1_end
+    400032: tire2
+    400034: tire2_end
+    400036: tube
+    400038: tube_end
+    400040: weapon
+    400042: weapon4
+    400044: weapon_end
+    4300000: enemy-tires.001
+    4300002: Cylinder.013
+    4300004: enemy-tires.002
+    4300006: weapon4
+    4300008: Cylinder.018
+    4300010: Cube.007
+    4300012: fire-big-2
+    4300014: fire-high
+    4300016: fire-small
+    7400000: Armature|ArmatureAction
+    7400002: Armature|fire-big-2Action
+    7400004: Armature|fire-highAction
+    7400006: Armature|fire-smallAction
+    7400008: fire-big-2|fire-big-2Action
+    7400010: fire-big-2|fire-highAction
+    7400012: fire-big-2|fire-smallAction
+    7400014: fire-high|fire-big-2Action
+    7400016: fire-high|fire-highAction
+    7400018: fire-high|fire-smallAction
+    7400020: fire-small|fire-big-2Action
+    7400022: fire-small|fire-highAction
+    7400024: fire-small|fire-smallAction
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube.007
+    13700002: Cylinder.013
+    13700004: Cylinder.018
+    13700006: enemy-tires.001
+    13700008: enemy-tires.002
+    13700010: fire-big-2
+    13700012: fire-high
+    13700014: fire-small
+    13700016: weapon4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

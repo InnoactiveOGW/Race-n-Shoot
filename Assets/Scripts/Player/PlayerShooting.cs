@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
         shootableMask = LayerMask.GetMask("Shootable");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
 
@@ -57,9 +57,7 @@ public class PlayerShooting : MonoBehaviour
 
         gunLight.enabled = true;
 
-        gunLine.enabled = true;
-        gunLine.SetPosition(0, transform.position);
-
+        gunLine.SetPosition(0, Vector3.zero);
 
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
@@ -72,12 +70,14 @@ public class PlayerShooting : MonoBehaviour
                 health.TakeDamage(damagePerShot);
             }
 
-            gunLine.SetPosition(1, shootHit.point);
+            gunLine.SetPosition(1, transform.InverseTransformPoint(shootHit.point));
 
         }
         else
         {
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            gunLine.SetPosition(1, transform.InverseTransformPoint(shootRay.origin + shootRay.direction * range));
         }
+
+        gunLine.enabled = true;
     }
 }

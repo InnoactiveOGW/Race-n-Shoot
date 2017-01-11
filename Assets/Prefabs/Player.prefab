@@ -5588,6 +5588,8 @@ MonoBehaviour:
   bloodSplatter2: {fileID: 0}
   bloodSplatter3: {fileID: 0}
   invincibilityTimer: 0
+  startingArmor: 0
+  currentArmor: 0
   frontArmor: {fileID: 1000010609020916}
   sideArmor: {fileID: 1000011616374238}
   backArmor: {fileID: 1000011649648274}
@@ -5651,7 +5653,7 @@ LineRenderer:
     m_EndColor:
       serializedVersion: 2
       rgba: 4294967295
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
 --- !u!120 &120000012566394682
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -5774,7 +5776,10 @@ SkinnedMeshRenderer:
   - {fileID: 4000013973523080}
   - {fileID: 4000010160894392}
   - {fileID: 4000013526638028}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 100
+  - 100
+  - 100
   m_RootBone: {fileID: 4000013526638028}
   m_AABB:
     m_Center: {x: 0.0069206404, y: 0.005151732, z: 0.000108966604}

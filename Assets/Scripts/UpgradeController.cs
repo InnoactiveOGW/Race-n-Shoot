@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UpgradeController : MonoBehaviour
 {
@@ -18,9 +19,17 @@ public class UpgradeController : MonoBehaviour
     private GameObject[] upgradeImagesSelected;
 
     private int selectedIndex;
+    private List<int> appliedUpgrades;
 
-    // Use this for initialization
-    void Start()
+    public bool hasAllUpgrades;
+
+    void Awake()
+    {
+        appliedUpgrades = new List<int>();
+        hasAllUpgrades = false;
+    }
+
+    void OnEnable()
     {
         selectedIndex = -1;
     }
@@ -33,7 +42,18 @@ public class UpgradeController : MonoBehaviour
 
         if (left || right)
         {
-            int newIndex = selectedIndex + (left ? -1 : 1);
+            int newIndex = selectedIndex;
+
+            bool isValidUpgrade = false;
+            while (!isValidUpgrade)
+            {
+                newIndex += left ? -1 : 1;
+                newIndex = newIndex < 0 ? upgrades.Length - 1 : (newIndex >= upgrades.Length ? 0 : newIndex);
+
+                if (!appliedUpgrades.Contains(newIndex))
+                    isValidUpgrade = true;
+            }
+
             chooseUpgrade(newIndex);
         }
 
@@ -45,6 +65,9 @@ public class UpgradeController : MonoBehaviour
 
     private void chooseUpgrade(int newIndex)
     {
+        if (newIndex == selectedIndex)
+            return;
+
         if (selectedIndex != -1)
         {
             upgrades[selectedIndex].SetActive(false);
@@ -58,7 +81,6 @@ public class UpgradeController : MonoBehaviour
         }
 
         selectedIndex = newIndex;
-        selectedIndex = selectedIndex < 0 ? upgradeImagesSelected.Length - 1 : (selectedIndex >= upgradeImagesSelected.Length ? 0 : selectedIndex);
 
         if (selectedIndex == 2)
         {
@@ -89,6 +111,10 @@ public class UpgradeController : MonoBehaviour
             default:
                 return;
         }
+
+        appliedUpgrades.Add(selectedIndex);
+        if (appliedUpgrades.Count == upgrades.Length)
+            hasAllUpgrades = true;
 
         gameController.UpgradeApplied();
     }
