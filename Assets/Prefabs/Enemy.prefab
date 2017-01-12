@@ -274,7 +274,7 @@ GameObject:
   - 4: {fileID: 4000012580762076}
   - 95: {fileID: 95000012349160300}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,7 +653,7 @@ GameObject:
   - 4: {fileID: 4000011720682328}
   - 111: {fileID: 111000012665026818}
   m_Layer: 0
-  m_Name: Enemy-explosion
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,7 +921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012405335542
 GameObject:
   m_ObjectHideFlags: 1
@@ -4882,14 +4882,20 @@ MonoBehaviour:
   currentHealth: 50
   isDead: 0
   smRenderer: {fileID: 137000013807666554}
-  car: {fileID: 1000010447348932}
-  carExplosion: {fileID: 1000011654180746}
+  normal: {fileID: 1000010447348932}
+  explosion: {fileID: 1000011654180746}
+  deathAnimation: {fileID: 111000012665026818}
+  fireObjects:
+  - {fileID: 137000014243064288}
+  - {fileID: 137000011866927180}
+  - {fileID: 137000012311893862}
+  fireDelayTimes:
+  - 0
+  - 1.4
+  - 1.6
   _renderer: {fileID: 137000013807666554}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0}
   zeroHealthColor: {r: 1, g: 1, b: 1, a: 0}
-  firstFire: {fileID: 137000014243064288}
-  seconedFire: {fileID: 137000011866927180}
-  thirdFire: {fileID: 137000012311893862}
 --- !u!120 &120000013394532018
 LineRenderer:
   m_ObjectHideFlags: 1

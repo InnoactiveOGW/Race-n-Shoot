@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        gunBarrelEnd = singleFireWeapon.GetComponentInChildren<PlayerShooting>().gameObject;
+        gunBarrelEnd = singleFireWeapon.GetComponentInChildren<MachineGunShooting>().gameObject;
         gunRotation.gunBarrelEnd = gunBarrelEnd.transform;
     }
 
@@ -64,6 +64,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Items
+
+
+    public bool NeedsHealthpack()
+    {
+        return health.NeedsHealthpack();
+    }
+
+    public void UseHealthPack()
+    {
+        Debug.Log("UseHealthPack");
+        ResetHealth();
+    }
+
+    public void UseInvincibility(float duration)
+    {
+        Debug.Log("UseInvincibility");
+        health.invincibilityTimer = duration;
+    }
+
+    public void UseSpeedBoost(float duration, float multiplicator)
+    {
+        Debug.Log("UseSpeedBoost");
+        movement.speed = movement.speed * multiplicator;
+        movement.speedBoostTimer = duration;
+    }
+
+    public void UseAmunitionPack()
+    {
+        Debug.Log("UseAmunitionPack");
+    }
+
+    // Upgrades
+
     public void ApplyHealthUpgrade()
     {
         health.AddArmor();
@@ -76,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyDoubleFireUpgrade()
     {
-        gunBarrelEnd = doubleFireWeapon.GetComponentInChildren<PlayerShooting>().gameObject;
+        gunBarrelEnd = doubleFireWeapon.GetComponentInChildren<MachineGunShooting>().gameObject;
         gunRotation.gunBarrelEnd = gunBarrelEnd.transform;
     }
 

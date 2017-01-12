@@ -2,15 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerHealth : DestructableObject
+public class PlayerHealth : FireAnimationObject
 {
     [SerializeField]
     private PlayerController playerController;
-
-    [SerializeField]
-    private GameObject car;
-    [SerializeField]
-    private GameObject carExplosion;
 
     [SerializeField]
     private float regenSpeed = 1f;
@@ -33,6 +28,8 @@ public class PlayerHealth : DestructableObject
 
     [HideInInspector]
     public float invincibilityTimer;
+    [SerializeField]
+    private GameObject invincibilityShield;
 
     private bool hasArmor = false;
     public float startingArmor;
@@ -47,11 +44,6 @@ public class PlayerHealth : DestructableObject
 
     private const float frontArmorBoundary = 75f;
     private const float sideArmorBoundary = 37.5f;
-
-    [SerializeField]
-    private SkinnedMeshRenderer firstFire;
-    [SerializeField]
-    private SkinnedMeshRenderer seconedFire;
 
     void Awake()
     {
@@ -69,7 +61,10 @@ public class PlayerHealth : DestructableObject
     {
         if (invincibilityTimer > 0f)
         {
+            invincibilityShield.SetActive(true);
             invincibilityTimer = Mathf.Max(0f, invincibilityTimer - Time.deltaTime);
+            if (invincibilityTimer == 0f)
+                invincibilityShield.SetActive(false);
         }
 
         if (!isDead && currentHealth < startingHealth)
@@ -92,6 +87,11 @@ public class PlayerHealth : DestructableObject
         hasArmor = true;
         startingArmor = 100;
         currentArmor = startingArmor;
+    }
+
+    public bool NeedsHealthpack()
+    {
+        return currentArmor < startingArmor || currentHealth < startingHealth;
     }
 
     public override void TakeDamage(float amount)
@@ -180,29 +180,8 @@ public class PlayerHealth : DestructableObject
 
     public override void OnDeath()
     {
-        carExplosion.SetActive(true);
-        car.SetActive(false);
-
-        carExplosion.GetComponent<Animation>().Play();
-        StartCoroutine(FireFlicker(firstFire));
-        StartCoroutine(FireFlicker(seconedFire));
-        StartCoroutine(SetActiveAfter(seconedFire.gameObject, 1.6f));
-
+        base.OnDeath();
         playerController.Death();
     }
 
-    private IEnumerator SetActiveAfter(GameObject gameObject, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        gameObject.SetActive(true);
-    }
-
-    private IEnumerator FireFlicker(SkinnedMeshRenderer fire)
-    {
-        while (true)
-        {
-            fire.SetBlendShapeWeight(0, Random.Range(0, 100));
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
 }

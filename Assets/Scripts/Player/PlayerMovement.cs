@@ -12,8 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     public float speed;
+
     [HideInInspector]
     public float speedBoostTimer;
+    [SerializeField]
+    private GameObject boostFire;
 
     private Vector3 movDir = Vector3.zero;
     private float xSpeed = 0f;
@@ -37,9 +40,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (speedBoostTimer > 0f)
         {
+            boostFire.SetActive(true);
             speedBoostTimer = Mathf.Max(0f, speedBoostTimer - Time.deltaTime);
             if (speedBoostTimer == 0f)
             {
+                boostFire.SetActive(false);
                 speed = normalSpeed;
             }
         }

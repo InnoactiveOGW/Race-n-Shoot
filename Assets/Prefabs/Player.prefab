@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 454872}
   - 120: {fileID: 12005278}
   - 108: {fileID: 10806682}
-  - 114: {fileID: 11442060}
   - 82: {fileID: 8230092}
+  - 114: {fileID: 114000013223671444}
   m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
@@ -50,9 +50,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 4000011034154266}
+  - {fileID: 4000014137764174}
+  - {fileID: 4000010365840338}
   - {fileID: 4000011307038046}
   - {fileID: 4000010087913298}
-  - {fileID: 4000011034154266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &454872
@@ -176,23 +178,6 @@ Light:
   m_BounceIntensity: 0.5
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &11442060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8fc591110434bbeaf83fdffb227eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerShot: 10
-  timeBetweenBullets: 0.05
-  range: 100
-  gunLine: {fileID: 12005278}
-  gunLight: {fileID: 10806682}
-  gunAudio: {fileID: 8230092}
 --- !u!114 &11482852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +194,7 @@ MonoBehaviour:
   normalSpeed: 15
   speed: 15
   speedBoostTimer: 0
+  boostFire: {fileID: 1000012767627508}
   gravity: 15
 --- !u!120 &12005278
 LineRenderer:
@@ -268,7 +254,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.74, z: -0}
+  m_Center: {x: 0, y: 0.57, z: -0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -670,8 +656,8 @@ GameObject:
   - 4: {fileID: 4000010605106936}
   - 120: {fileID: 120000012566394682}
   - 108: {fileID: 108000010297257340}
-  - 114: {fileID: 114000010855430284}
   - 82: {fileID: 82000013941988334}
+  - 114: {fileID: 114000013119845620}
   m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
@@ -955,8 +941,8 @@ GameObject:
   - 4: {fileID: 4000013574635266}
   - 120: {fileID: 120000010513538036}
   - 108: {fileID: 108000012535832454}
-  - 114: {fileID: 114000014068517256}
   - 82: {fileID: 82000014162422998}
+  - 114: {fileID: 114000011977223234}
   m_Layer: 8
   m_Name: Gun Barrel End
   m_TagString: Untagged
@@ -981,6 +967,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012216444480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014137764174}
+  - 33: {fileID: 33000012056674708}
+  - 23: {fileID: 23000011882153240}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1000012234317406
 GameObject:
   m_ObjectHideFlags: 1
@@ -1262,6 +1265,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012767627508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010365840338}
+  - 137: {fileID: 137000010764518678}
+  - 114: {fileID: 114000010040124808}
+  m_Layer: 0
+  m_Name: boost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1000012774998932
 GameObject:
   m_ObjectHideFlags: 1
@@ -1727,7 +1747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000014128499392
 GameObject:
   m_ObjectHideFlags: 1
@@ -1786,7 +1806,7 @@ Transform:
   - {fileID: 4000012233938782}
   - {fileID: 4000011453484400}
   m_Father: {fileID: 409188}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!4 &4000010160894392
 Transform:
   m_ObjectHideFlags: 1
@@ -1842,6 +1862,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011892981772}
   m_RootOrder: 41
+--- !u!4 &4000010365840338
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012767627508}
+  m_LocalRotation: {x: 0.29237175, y: 0.9563048, z: -0, w: 0}
+  m_LocalPosition: {x: 0.21, y: 0.24, z: -1.65}
+  m_LocalScale: {x: 1.3010392, y: 90.46775, z: 358.26883}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 34}
+  m_Children: []
+  m_Father: {fileID: 409188}
+  m_RootOrder: 2
 --- !u!4 &4000010408058534
 Transform:
   m_ObjectHideFlags: 1
@@ -2039,7 +2072,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 409188}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!4 &4000011051568794
 Transform:
   m_ObjectHideFlags: 1
@@ -2123,7 +2156,7 @@ Transform:
   - {fileID: 4000011290642914}
   - {fileID: 4000014079509600}
   m_Father: {fileID: 409188}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!4 &4000011315529024
 Transform:
   m_ObjectHideFlags: 1
@@ -2937,6 +2970,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011892981772}
   m_RootOrder: 37
+--- !u!4 &4000014137764174
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012216444480}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.525, z: 0.016}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 409188}
+  m_RootOrder: 1
 --- !u!4 &4000014171723642
 Transform:
   m_ObjectHideFlags: 1
@@ -3744,6 +3790,35 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 6046b205b97a04d06ab61ddff112515c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &23000011882153240
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012216444480}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 368f44f778117434daac279b3d000cd0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -4978,6 +5053,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012486969504}
   m_Mesh: {fileID: 4300128, guid: 5fa370f4c467e4650aa116f48c6f10d0, type: 3}
+--- !u!33 &33000012056674708
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012216444480}
+  m_Mesh: {fileID: 4300000, guid: a74d7184ea3fa4b5f839d51bb07c8d91, type: 3}
 --- !u!33 &33000012062391046
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -5504,6 +5586,18 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 1
   m_CullingType: 0
+--- !u!114 &114000010040124808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012767627508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c40def489e84544ba1adcaff776ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: {fileID: 137000010764518678}
 --- !u!114 &114000010206559946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5535,7 +5629,24 @@ MonoBehaviour:
   singleFireWeapon: {fileID: 1000012596700464}
   doubleFireWeapon: {fileID: 1000013263677432}
   carTranslationTime: 0.5
---- !u!114 &114000010855430284
+--- !u!114 &114000011977223234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012140132784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14bc68f7331f4a638b86e5cae850782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerShot: 20
+  timeBetweenBullets: 0.15
+  range: 100
+  gunLine: {fileID: 120000010513538036}
+  gunLight: {fileID: 108000012535832454}
+  gunAudio: {fileID: 82000014162422998}
+--- !u!114 &114000013119845620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -5543,15 +5654,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011256586784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8fc591110434bbeaf83fdffb227eca, type: 3}
+  m_Script: {fileID: 11500000, guid: c14bc68f7331f4a638b86e5cae850782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerShot: 10
-  timeBetweenBullets: 0.05
+  damagePerShot: 20
+  timeBetweenBullets: 0.15
   range: 100
   gunLine: {fileID: 120000012566394682}
   gunLight: {fileID: 108000010297257340}
   gunAudio: {fileID: 82000013941988334}
+--- !u!114 &114000013223671444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14bc68f7331f4a638b86e5cae850782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerShot: 20
+  timeBetweenBullets: 0.15
+  range: 100
+  gunLine: {fileID: 12005278}
+  gunLight: {fileID: 10806682}
+  gunAudio: {fileID: 8230092}
 --- !u!114 &114000013415061266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5579,39 +5707,28 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   smRenderer: {fileID: 137000012987272316}
+  normal: {fileID: 1000012557928974}
+  explosion: {fileID: 1000013698426004}
+  deathAnimation: {fileID: 111000013344825420}
+  fireObjects:
+  - {fileID: 137000012993110512}
+  - {fileID: 137000010371821062}
+  fireDelayTimes:
+  - 0
+  - 1.6
   playerController: {fileID: 114000010237456254}
-  car: {fileID: 1000012557928974}
-  carExplosion: {fileID: 1000013698426004}
   regenSpeed: 1
   bloodPulse: {fileID: 0}
   bloodSplatter1: {fileID: 0}
   bloodSplatter2: {fileID: 0}
   bloodSplatter3: {fileID: 0}
   invincibilityTimer: 0
+  invincibilityShield: {fileID: 1000012216444480}
   startingArmor: 0
   currentArmor: 0
   frontArmor: {fileID: 1000010609020916}
   sideArmor: {fileID: 1000011616374238}
   backArmor: {fileID: 1000011649648274}
-  firstFire: {fileID: 137000012993110512}
-  seconedFire: {fileID: 137000010371821062}
---- !u!114 &114000014068517256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012140132784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8fc591110434bbeaf83fdffb227eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerShot: 10
-  timeBetweenBullets: 0.05
-  range: 100
-  gunLine: {fileID: 120000010513538036}
-  gunLight: {fileID: 108000012535832454}
-  gunAudio: {fileID: 82000014162422998}
 --- !u!120 &120000010513538036
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -5737,6 +5854,48 @@ SkinnedMeshRenderer:
   m_AABB:
     m_Center: {x: -0.05594428, y: 0.00774886, z: -0.005023753}
     m_Extent: {x: 0.09329562, y: 0.005924289, z: 0.0050689806}
+  m_DirtyAABB: 0
+--- !u!137 &137000010764518678
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012767627508}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0ca1af49a84f64b298ed6e9174deaa75, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 67da3cdf1e7204f9e95263839c742432, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.1493076, y: -0.0008410453, z: 0.0018312252}
+    m_Extent: {x: 0.15930836, y: 0.0019896943, z: 0.0024170633}
   m_DirtyAABB: 0
 --- !u!137 &137000011324029614
 SkinnedMeshRenderer:

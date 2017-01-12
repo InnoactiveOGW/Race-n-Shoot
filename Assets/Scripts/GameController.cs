@@ -91,12 +91,11 @@ public class GameController : MonoBehaviour
 
             if (i > 0 && i % 3 == 0)
             {
-
                 enemies.Add((GameObject)Instantiate(armouredEnemy, spawn.position, spawn.rotation));
             }
             else
             {
-                enemies.Add((GameObject)Instantiate(enemy, spawn.position, spawn.rotation));
+                enemies.Add((GameObject)Instantiate(armouredEnemy, spawn.position, spawn.rotation));
             }
 
             enemyCount += 1;

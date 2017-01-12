@@ -26,14 +26,10 @@ public class ItemsController : MonoBehaviour
     private ItemType currentItem = ItemType.None;
 
     [SerializeField]
-    private PlayerHealth playerHealth;
-    [SerializeField]
-    private PlayerMovement playerMovement;
-
+    private PlayerController playerController;
 
     [SerializeField]
     private float invincibilityDuration;
-
     [SerializeField]
     private float speedBoostMultiplicator;
     [SerializeField]
@@ -41,12 +37,10 @@ public class ItemsController : MonoBehaviour
 
     void Update()
     {
-        if (currentItem == ItemType.None)
-            return;
-
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && currentItem != ItemType.None)
         {
-            UseCurrentItem();
+            UseItem(currentItem);
+            currentItem = ItemType.None;
         }
     }
 
@@ -55,7 +49,7 @@ public class ItemsController : MonoBehaviour
         switch (collectableType)
         {
             case CollectableType.HealthPack:
-                return playerHealth.currentArmor < playerHealth.startingArmor || playerHealth.currentHealth < playerHealth.startingHealth;
+                return playerController.NeedsHealthpack();
 
             default:
                 return currentItem == ItemType.None;
@@ -81,61 +75,34 @@ public class ItemsController : MonoBehaviour
                 break;
         }
 
-        currentItem = itemType;
         if (collectableType != CollectableType.Random)
-        {
-            UseCurrentItem();
-        }
+            UseItem(itemType);
+        else
+            currentItem = itemType;
     }
 
-    public void UseCurrentItem()
+    public void UseItem(ItemType itemType)
     {
-        switch (currentItem)
+        switch (itemType)
         {
             case ItemType.HealthPack:
-                UseHealthPack();
+                playerController.UseHealthPack();
                 break;
 
             case ItemType.Invincibility:
-                UseInvincibility();
+                playerController.UseInvincibility(invincibilityDuration);
                 break;
 
             case ItemType.SpeedBoost:
-                UseSpeedBoost();
+                playerController.UseSpeedBoost(speedBoostDuration, speedBoostMultiplicator);
                 break;
 
             case ItemType.AmunitionPack:
-                UseAmunitionPack();
+                playerController.UseAmunitionPack();
                 break;
 
             default:
                 break;
         }
-
-        currentItem = ItemType.None;
-    }
-
-    private void UseHealthPack()
-    {
-        Debug.Log("UseHealthPack");
-        playerHealth.ResetHealth();
-    }
-
-    private void UseInvincibility()
-    {
-        Debug.Log("UseInvincibility");
-        playerHealth.invincibilityTimer = invincibilityDuration;
-    }
-
-    private void UseSpeedBoost()
-    {
-        Debug.Log("UseSpeedBoost");
-        playerMovement.speed = playerMovement.speed * speedBoostMultiplicator;
-        playerMovement.speedBoostTimer = speedBoostDuration;
-    }
-
-    private void UseAmunitionPack()
-    {
-        Debug.Log("UseAmunitionPack");
     }
 }

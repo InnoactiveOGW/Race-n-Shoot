@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: b4fa82abd03b7439486572e39ab35f28
+timeCreated: 1484213975
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: barrel1
+    100004: barrel1 1
+    100006: barrel1_end
+    100008: barrel1b
+    100010: barrel1b 1
+    100012: barrel1b_end
+    100014: barrel2
+    100016: barrel2 1
+    100018: barrel2_end
+    100020: barrel2b
+    100022: barrel2b 1
+    100024: barrel2b_end
+    100026: barrel3
+    100028: barrel3 1
+    100030: barrel3_end
+    100032: barrel3b
+    100034: barrel3b 1
+    100036: barrel3b_end
+    100038: Bone
+    100040: Bone.001
+    100042: Bone.001_end
+    100044: Bone.002
+    100046: Bone.002_end
+    100048: Bone.003
+    100050: Bone.003_end
+    100052: Bone_end
+    100054: fire-big
+    100056: fire-big-2
+    100058: fire-high
+    100060: fire-small
+    100062: oil
+    100064: //RootNode
+    400000: Armature
+    400002: barrel1
+    400004: barrel1 1
+    400006: barrel1_end
+    400008: barrel1b
+    400010: barrel1b 1
+    400012: barrel1b_end
+    400014: barrel2
+    400016: barrel2 1
+    400018: barrel2_end
+    400020: barrel2b
+    400022: barrel2b 1
+    400024: barrel2b_end
+    400026: barrel3
+    400028: barrel3 1
+    400030: barrel3_end
+    400032: barrel3b
+    400034: barrel3b 1
+    400036: barrel3b_end
+    400038: Bone
+    400040: Bone.001
+    400042: Bone.001_end
+    400044: Bone.002
+    400046: Bone.002_end
+    400048: Bone.003
+    400050: Bone.003_end
+    400052: Bone_end
+    400054: fire-big
+    400056: fire-big-2
+    400058: fire-high
+    400060: fire-small
+    400062: oil
+    400064: //RootNode
+    4300000: oil
+    4300002: barrel2
+    4300004: barrel1
+    4300006: barrel1b
+    4300008: barrel3
+    4300010: barrel3b
+    4300012: barrel2b
+    4300014: fire-big
+    4300016: fire-big-2
+    4300018: fire-high
+    4300020: fire-small
+    7400000: Armature|ArmatureAction
+    7400002: Armature|fire-big-2Action
+    7400004: Armature|fire-bigAction
+    7400006: Armature|fire-highAction
+    7400008: Armature|fire-smallAction
+    7400010: fire-big|fire-big-2Action
+    7400012: fire-big|fire-bigAction
+    7400014: fire-big|fire-highAction
+    7400016: fire-big|fire-smallAction
+    7400018: fire-big-2|fire-big-2Action
+    7400020: fire-big-2|fire-bigAction
+    7400022: fire-big-2|fire-highAction
+    7400024: fire-big-2|fire-smallAction
+    7400026: fire-high|fire-big-2Action
+    7400028: fire-high|fire-bigAction
+    7400030: fire-high|fire-highAction
+    7400032: fire-high|fire-smallAction
+    7400034: fire-small|fire-big-2Action
+    7400036: fire-small|fire-bigAction
+    7400038: fire-small|fire-highAction
+    7400040: fire-small|fire-smallAction
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: barrel1
+    13700002: barrel1b
+    13700004: barrel2
+    13700006: barrel2b
+    13700008: barrel3
+    13700010: barrel3b
+    13700012: fire-big
+    13700014: fire-big-2
+    13700016: fire-high
+    13700018: fire-small
+    13700020: oil
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
