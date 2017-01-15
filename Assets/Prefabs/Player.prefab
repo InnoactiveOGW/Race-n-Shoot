@@ -190,12 +190,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airRes: 0
-  groundRes: 1000
+  groundRes: 100
   normalSpeed: 15
-  speed: 15
+  speed: 0
   speedBoostTimer: 0
   boostFire: {fileID: 1000012767627508}
-  gravity: 15
+  gravity: 30
 --- !u!120 &12005278
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -543,6 +543,7 @@ GameObject:
   - 4: {fileID: 4000010050527368}
   - 33: {fileID: 33000012600147306}
   - 23: {fileID: 23000011356422206}
+  - 114: {fileID: 114000013578489414}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1163,7 +1164,7 @@ GameObject:
   - 4: {fileID: 4000011307038046}
   - 95: {fileID: 95000010533630110}
   m_Layer: 0
-  m_Name: Car
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,7 +1594,7 @@ GameObject:
   - 4: {fileID: 4000010087913298}
   - 111: {fileID: 111000013344825420}
   m_Layer: 0
-  m_Name: Car-explosion
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,6 +1742,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012511045478}
+  - 114: {fileID: 114000012746650960}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -1783,10 +1785,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010859866016}
-  m_LocalRotation: {x: 0.00000013767878, y: 0.7071068, z: 0.7071067, w: 0.00000013767877}
-  m_LocalPosition: {x: 0.000010854602, y: 0.0006784944, z: 0.000029438435}
+  m_LocalRotation: {x: -0.00000019861236, y: -0.7071068, z: -0.7071068, w: 0.00000019861236}
+  m_LocalPosition: {x: -0.00003, y: -0.00016, z: 0.00008}
   m_LocalScale: {x: 0.052062467, y: 0.052062467, z: 0.20681131}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -179.99998}
   m_Children: []
   m_Father: {fileID: 4000012511045478}
   m_RootOrder: 0
@@ -5597,7 +5599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c40def489e84544ba1adcaff776ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 137000010764518678}
+  fire: {fileID: 0}
 --- !u!114 &114000010206559946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5609,14 +5611,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa1691293cee4d76a57e004f43cd2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunBarrelEnd: {fileID: 4000013273335386}
+  gunBarrelEnd: {fileID: 0}
 --- !u!114 &114000010237456254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a945e2f1ec48a4924b647bceb5160206, type: 3}
   m_Name: 
@@ -5625,10 +5627,10 @@ MonoBehaviour:
   characterController: {fileID: 14359002}
   movement: {fileID: 11482852}
   health: {fileID: 114000014042254198}
-  gunRotation: {fileID: 114000010206559946}
+  gunRotation: {fileID: 114000013415061266}
   singleFireWeapon: {fileID: 1000012596700464}
   doubleFireWeapon: {fileID: 1000013263677432}
-  carTranslationTime: 0.5
+  carTranslationTime: 0
 --- !u!114 &114000011977223234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5646,6 +5648,18 @@ MonoBehaviour:
   gunLine: {fileID: 120000010513538036}
   gunLight: {fileID: 108000012535832454}
   gunAudio: {fileID: 82000014162422998}
+--- !u!114 &114000012746650960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014008310556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d314a8c799b4a80a8b7f8c37404c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileCheckpoints: []
 --- !u!114 &114000013119845620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5691,7 +5705,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa1691293cee4d76a57e004f43cd2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunBarrelEnd: {fileID: 4000013574635266}
+  gunBarrelEnd: {fileID: 0}
+--- !u!114 &114000013578489414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010859866016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d314a8c799b4a80a8b7f8c37404c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileCheckpoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114000014042254198
 MonoBehaviour:
   m_ObjectHideFlags: 1

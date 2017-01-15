@@ -488,6 +488,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013578489414, guid: 8206b60380f954f0caa45589d645423e,
+        type: 2}
+      propertyPath: missileCheckpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1515911185}
+    - target: {fileID: 114000013578489414, guid: 8206b60380f954f0caa45589d645423e,
+        type: 2}
+      propertyPath: missileCheckpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 321621393}
+    - target: {fileID: 114000013578489414, guid: 8206b60380f954f0caa45589d645423e,
+        type: 2}
+      propertyPath: missileCheckpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 981368708}
     - target: {fileID: 114000014042254198, guid: 8206b60380f954f0caa45589d645423e,
         type: 2}
       propertyPath: bloodPulse
@@ -513,38 +528,6 @@ Prefab:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1272367688}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.00000028088027
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -179.99998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.00068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010050527368, guid: 8206b60380f954f0caa45589d645423e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.00124
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8206b60380f954f0caa45589d645423e, type: 2}
   m_IsPrefabParent: 0
@@ -3479,17 +3462,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000014008310556, guid: 8206b60380f954f0caa45589d645423e,
     type: 2}
   m_PrefabInternal: {fileID: 433713581}
---- !u!114 &1975736306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1975736304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39d314a8c799b4a80a8b7f8c37404c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1987427577
 GameObject:
   m_ObjectHideFlags: 0

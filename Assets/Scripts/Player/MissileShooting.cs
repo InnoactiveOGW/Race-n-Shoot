@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MissileShooting : MonoBehaviour
 {
@@ -20,7 +21,21 @@ public class MissileShooting : MonoBehaviour
 
         GameObject closestEnemy = enemyTargets[getClosestEnemy(enemyVectors)];
 
-        LeanTween.move(this.gameObject, [transform.position, closestEnemy.transform.position], 1.0);
+        List<Vector3> positions = new List<Vector3>();
+        positions.Add(transform.position);
+
+        List<Transform> checkpoints = new List<Transform>(missileCheckpoints);
+        while (checkpoints.Count > 0)
+        {
+            int index = Random.Range(0, checkpoints.Count - 1);
+            Transform randomCheckpoint = checkpoints[index];
+            checkpoints.Remove(randomCheckpoint);
+            positions.Add(randomCheckpoint.position);
+        }
+
+        positions.Add(closestEnemy.transform.position);
+
+        LeanTween.move(this.gameObject, positions.ToArray(), 10.0f);
     }
 
     private Vector3[] getEnemyVectors(GameObject[] enemyTargets)
@@ -55,6 +70,6 @@ public class MissileShooting : MonoBehaviour
             }
         }
 
-        return closestEnemyIndex
+        return closestEnemyIndex;
     }
 }

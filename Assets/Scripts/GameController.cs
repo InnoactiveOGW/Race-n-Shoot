@@ -95,7 +95,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                enemies.Add((GameObject)Instantiate(armouredEnemy, spawn.position, spawn.rotation));
+                enemies.Add((GameObject)Instantiate(enemy, spawn.position, spawn.rotation));
             }
 
             enemyCount += 1;
