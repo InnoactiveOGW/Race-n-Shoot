@@ -7,6 +7,7 @@ TagManager:
   - PlayerTarget
   - EnemyTarget
   - Roof
+  - Enemy
   layers:
   - Default
   - TransparentFX

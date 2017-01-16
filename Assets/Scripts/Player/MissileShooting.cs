@@ -7,35 +7,51 @@ public class MissileShooting : MonoBehaviour
     [SerializeField]
     private Transform[] missileCheckpoints;
 
+    private GameObject closestEnemy;
+    private bool wasFired;
+
     void Update()
     {
-        if (!Input.GetButton("Fire2"))
-            return;
+        if (Input.GetButton("Fire2"))
+            Fire();
+    }
 
-        Debug.Log("fire missile");
+    private void Fire()
+    {
+        if (wasFired)
+            return;
 
         GameObject[] enemyTargets = GameObject.FindGameObjectsWithTag("EnemyTarget");
         Vector3[] enemyVectors = getEnemyVectors(enemyTargets);
         if (enemyVectors.Length == 0)
             return;
 
-        GameObject closestEnemy = enemyTargets[getClosestEnemy(enemyVectors)];
+        Debug.Log("fire missile");
+        wasFired = true;
+
+        gameObject.transform.parent = null;
+        closestEnemy = enemyTargets[getClosestEnemy(enemyVectors)];
 
         List<Vector3> positions = new List<Vector3>();
         positions.Add(transform.position);
 
-        List<Transform> checkpoints = new List<Transform>(missileCheckpoints);
-        while (checkpoints.Count > 0)
-        {
-            int index = Random.Range(0, checkpoints.Count - 1);
-            Transform randomCheckpoint = checkpoints[index];
-            checkpoints.Remove(randomCheckpoint);
-            positions.Add(randomCheckpoint.position);
-        }
+        // List<Transform> checkpoints = new List<Transform>(missileCheckpoints);
+        // while (checkpoints.Count > 0)
+        // {
+        //     int index = Random.Range(0, checkpoints.Count - 1);
+        //     Transform randomCheckpoint = checkpoints[index];
+        //     checkpoints.Remove(randomCheckpoint);
+        //     positions.Add(randomCheckpoint.position);
+        // }
 
+        positions.Add(missileCheckpoints[0].position);
+        positions.Add(missileCheckpoints[1].position);
         positions.Add(closestEnemy.transform.position);
 
-        LeanTween.move(this.gameObject, positions.ToArray(), 10.0f);
+        Vector3[] positionsArray = positions.ToArray();
+
+        LTDescr tweenId = LeanTween.move(this.gameObject, positionsArray, 5f).setEase(LeanTweenType.easeInQuad).setOrientToPath(true);
+        tweenId.setOnComplete(tweenCompleted);
     }
 
     private Vector3[] getEnemyVectors(GameObject[] enemyTargets)
@@ -71,5 +87,30 @@ public class MissileShooting : MonoBehaviour
         }
 
         return closestEnemyIndex;
+    }
+
+    private void tweenCompleted()
+    {
+        if (!enabled)
+            return;
+
+        Debug.Log("tween completed");
+
+        LTDescr tweenId = LeanTween.move(this.gameObject, closestEnemy.transform.position, 1f).setOrientToPath(true);
+        tweenId.setOnComplete(tweenCompleted);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+            return;
+
+        Debug.Log("missile triggered");
+
+        if (other.gameObject.tag == "Enemy")
+            closestEnemy.GetComponent<EnemyHealth>().TakeDamage(100);
+
+        enabled = false;
+        Destroy(gameObject);
     }
 }

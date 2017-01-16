@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour
     {
         playerController.ResetHealth();
 
-        if (!upgradeController.hasAllUpgrades && waveCount % 5 == 0)
+        if (!upgradeController.hasAllUpgrades && waveCount % 1 == 0)
         {
             ShowUpgrades();
         }
