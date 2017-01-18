@@ -49,8 +49,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        float h = input.x;
+        float v = input.y;
 
         Vector3 inputDir = new Vector3(h, 0f, v);
 

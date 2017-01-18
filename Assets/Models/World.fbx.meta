@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: bf0422788fe804329946d5d2cb7ab941
-timeCreated: 1484232407
-licenseType: Pro
+guid: 195070c1b959d7a46a87a2acb5fbc540
+timeCreated: 1484659107
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -2046,108 +2046,97 @@ ModelImporter:
     6400620: wall6
     6400622: wall7
     6400624: wall8
-    7400000: Armature.004|Armature.004Action
-    7400002: Armature.004|Cube.053Action
-    7400004: Armature.004|Cube.057Action
+    7400000: Armature.004|Armature.003Action
+    7400002: Armature.004|Armature.004Action
+    7400004: Armature.004|Cube.053Action
     7400006: Armature.004|Cube.1022Action
     7400008: Armature.004|Cube.169Action
     7400010: Armature.004|Cube.169Action.002
     7400012: Armature.004|ItemcurveAction
-    7400014: Armature.004|Plane.003Action
-    7400016: Armature.004|rock.010Action
-    7400018: Armature.003|Armature.003Action
+    7400014: Armature.004|rock.010Action
+    7400016: Armature.003|Armature.003Action
+    7400018: Armature.003|Armature.003Action.001
     7400020: Armature.003|Cube.053Action
-    7400022: Armature.003|Cube.057Action
-    7400024: Armature.003|Cube.1022Action
-    7400026: Armature.003|Cube.169Action
-    7400028: Armature.003|Cube.169Action.002
-    7400030: Armature.003|ItemcurveAction
-    7400032: Armature.003|Plane.003Action
-    7400034: Armature.003|rock.010Action
-    7400036: Plane.003|Cube.053Action
-    7400038: Plane.003|Cube.057Action
-    7400040: Plane.003|Cube.1022Action
-    7400042: Plane.003|Cube.169Action
-    7400044: Plane.003|Cube.169Action.002
-    7400046: Plane.003|ItemcurveAction
-    7400048: Plane.003|Plane.003Action
-    7400050: Plane.003|rock.010Action
-    7400052: Armature.002|Armature.002Action
-    7400054: Armature.002|Cube.053Action
-    7400056: Armature.002|Cube.057Action
-    7400058: Armature.002|Cube.1022Action
-    7400060: Armature.002|Cube.169Action
-    7400062: Armature.002|Cube.169Action.002
-    7400064: Armature.002|ItemcurveAction
-    7400066: Armature.002|Plane.003Action
-    7400068: Armature.002|rock.010Action
-    7400070: Armature.001|Armature.001Action
-    7400072: Armature.001|Cube.053Action
-    7400074: Armature.001|Cube.057Action
-    7400076: Armature.001|Cube.1022Action
-    7400078: Armature.001|Cube.169Action
-    7400080: Armature.001|Cube.169Action.002
-    7400082: Armature.001|ItemcurveAction
-    7400084: Armature.001|Plane.003Action
-    7400086: Armature.001|rock.010Action
-    7400088: Armature|ArmatureAction
-    7400090: Armature|Cube.053Action
-    7400092: Armature|Cube.057Action
-    7400094: Armature|Cube.1022Action
-    7400096: Armature|Cube.169Action
-    7400098: Armature|Cube.169Action.002
-    7400100: Armature|ItemcurveAction
-    7400102: Armature|Plane.003Action
-    7400104: Armature|rock.010Action
-    7400106: Cube.1022|Cube.053Action
-    7400108: Cube.1022|Cube.057Action
-    7400110: Cube.1022|Cube.1022Action
-    7400112: Cube.1022|Cube.169Action
-    7400114: Cube.1022|Cube.169Action.002
-    7400116: Cube.1022|ItemcurveAction
-    7400118: Cube.1022|Plane.003Action
-    7400120: Cube.1022|rock.010Action
-    7400122: rock.010|Cube.053Action
-    7400124: rock.010|Cube.057Action
-    7400126: rock.010|Cube.1022Action
-    7400128: rock.010|Cube.169Action
-    7400130: rock.010|Cube.169Action.002
-    7400132: rock.010|ItemcurveAction
-    7400134: rock.010|Plane.003Action
-    7400136: rock.010|rock.010Action
-    7400138: Cube.053|Cube.053Action
-    7400140: Cube.053|Cube.057Action
-    7400142: Cube.053|Cube.1022Action
-    7400144: Cube.053|Cube.169Action
-    7400146: Cube.053|Cube.169Action.002
-    7400148: Cube.053|ItemcurveAction
-    7400150: Cube.053|Plane.003Action
-    7400152: Cube.053|rock.010Action
-    7400154: Itemcurve|Cube.053Action
-    7400156: Itemcurve|Cube.057Action
-    7400158: Itemcurve|Cube.1022Action
-    7400160: Itemcurve|Cube.169Action
-    7400162: Itemcurve|Cube.169Action.002
-    7400164: Itemcurve|ItemcurveAction
-    7400166: Itemcurve|Plane.003Action
-    7400168: Itemcurve|rock.010Action
-    7400170: Cube.696|Cube.053Action
-    7400172: Cube.696|Cube.057Action
-    7400174: Cube.696|Cube.1022Action
-    7400176: Cube.696|Cube.169Action
-    7400178: Cube.696|Cube.169Action.002
-    7400180: Cube.696|ItemcurveAction
-    7400182: Cube.696|Plane.003Action
-    7400184: Cube.696|rock.010Action
-    7400186: Cube.169|Cube.053Action
-    7400188: Cube.169|Cube.057Action
-    7400190: Cube.169|Cube.1022Action
-    7400192: Cube.169|Cube.169Action
-    7400194: Cube.169|Cube.169Action.002
-    7400196: Cube.169|ItemcurveAction
-    7400198: Cube.169|Plane.003Action
-    7400200: Cube.169|rock.010Action
+    7400022: Armature.003|Cube.1022Action
+    7400024: Armature.003|Cube.169Action
+    7400026: Armature.003|Cube.169Action.002
+    7400028: Armature.003|ItemcurveAction
+    7400030: Armature.003|rock.010Action
+    7400032: Plane.003|Armature.003Action
+    7400034: Plane.003|Cube.053Action
+    7400036: Plane.003|Cube.1022Action
+    7400038: Plane.003|Cube.169Action
+    7400040: Plane.003|Cube.169Action.002
+    7400042: Plane.003|ItemcurveAction
+    7400044: Plane.003|rock.010Action
+    7400046: Armature.002|Armature.002Action
+    7400048: Armature.002|Armature.003Action
+    7400050: Armature.002|Cube.053Action
+    7400052: Armature.002|Cube.1022Action
+    7400054: Armature.002|Cube.169Action
+    7400056: Armature.002|Cube.169Action.002
+    7400058: Armature.002|ItemcurveAction
+    7400060: Armature.002|rock.010Action
+    7400062: Armature.001|Armature.001Action
+    7400064: Armature.001|Armature.003Action
+    7400066: Armature.001|Cube.053Action
+    7400068: Armature.001|Cube.1022Action
+    7400070: Armature.001|Cube.169Action
+    7400072: Armature.001|Cube.169Action.002
+    7400074: Armature.001|ItemcurveAction
+    7400076: Armature.001|rock.010Action
+    7400078: Armature|Armature.003Action
+    7400080: Armature|ArmatureAction
+    7400082: Armature|Cube.053Action
+    7400084: Armature|Cube.1022Action
+    7400086: Armature|Cube.169Action
+    7400088: Armature|Cube.169Action.002
+    7400090: Armature|ItemcurveAction
+    7400092: Armature|rock.010Action
+    7400094: Cube.1022|Armature.003Action
+    7400096: Cube.1022|Cube.053Action
+    7400098: Cube.1022|Cube.1022Action
+    7400100: Cube.1022|Cube.169Action
+    7400102: Cube.1022|Cube.169Action.002
+    7400104: Cube.1022|ItemcurveAction
+    7400106: Cube.1022|rock.010Action
+    7400108: rock.010|Armature.003Action
+    7400110: rock.010|Cube.053Action
+    7400112: rock.010|Cube.1022Action
+    7400114: rock.010|Cube.169Action
+    7400116: rock.010|Cube.169Action.002
+    7400118: rock.010|ItemcurveAction
+    7400120: rock.010|rock.010Action
+    7400122: Cube.053|Armature.003Action
+    7400124: Cube.053|Cube.053Action
+    7400126: Cube.053|Cube.1022Action
+    7400128: Cube.053|Cube.169Action
+    7400130: Cube.053|Cube.169Action.002
+    7400132: Cube.053|ItemcurveAction
+    7400134: Cube.053|rock.010Action
+    7400136: Itemcurve|Armature.003Action
+    7400138: Itemcurve|Cube.053Action
+    7400140: Itemcurve|Cube.1022Action
+    7400142: Itemcurve|Cube.169Action
+    7400144: Itemcurve|Cube.169Action.002
+    7400146: Itemcurve|ItemcurveAction
+    7400148: Itemcurve|rock.010Action
+    7400150: Cube.696|Armature.003Action
+    7400152: Cube.696|Cube.053Action
+    7400154: Cube.696|Cube.1022Action
+    7400156: Cube.696|Cube.169Action
+    7400158: Cube.696|Cube.169Action.002
+    7400160: Cube.696|ItemcurveAction
+    7400162: Cube.696|rock.010Action
+    7400164: Cube.169|Armature.003Action
+    7400166: Cube.169|Cube.053Action
+    7400168: Cube.169|Cube.1022Action
+    7400170: Cube.169|Cube.169Action
+    7400172: Cube.169|Cube.169Action.002
+    7400174: Cube.169|ItemcurveAction
+    7400176: Cube.169|rock.010Action
     9500000: //RootNode
+    11100000: //RootNode
     13700000: balken
     13700002: brett1
     13700004: brett2
@@ -2218,7 +2207,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1
@@ -2252,7 +2241,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

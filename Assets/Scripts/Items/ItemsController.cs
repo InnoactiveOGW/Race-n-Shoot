@@ -37,7 +37,8 @@ public class ItemsController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && currentItem != ItemType.None)
+        float trigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
+        if (trigger > 0f && currentItem != ItemType.None)
         {
             UseItem(currentItem);
             currentItem = ItemType.None;

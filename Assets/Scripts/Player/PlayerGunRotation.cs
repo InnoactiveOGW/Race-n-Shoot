@@ -8,8 +8,9 @@ public class PlayerGunRotation : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxisRaw("RightStickX");
-        float z = Input.GetAxisRaw("RightStickY");
+        Vector2 input = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+        float x = -input.x;
+        float z = -input.y;
 
         if (x == 0 && z == 0)
             return;

@@ -12,7 +12,8 @@ public class MissileShooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire2"))
+        float trigger = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
+        if (trigger > 0f)
             Fire();
     }
 
@@ -102,6 +103,9 @@ public class MissileShooting : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (!wasFired)
+            return;
+
         if (other.gameObject.tag == "Player")
             return;
 

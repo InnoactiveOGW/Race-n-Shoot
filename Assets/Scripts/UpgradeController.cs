@@ -37,8 +37,12 @@ public class UpgradeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool left = Input.GetKeyDown(KeyCode.LeftArrow);
-        bool right = Input.GetKeyDown(KeyCode.RightArrow);
+        Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        float h = input.y;
+        bool left = h < 0;
+        bool right = h > 0;
+
+        Debug.Log("left: " + left + " right: " + right);
 
         if (left || right)
         {
@@ -57,7 +61,7 @@ public class UpgradeController : MonoBehaviour
             chooseUpgrade(newIndex);
         }
 
-        if (selectedIndex >= 0 && Input.GetKeyDown(KeyCode.Space))
+        if (selectedIndex >= 0 && OVRInput.GetDown(OVRInput.Button.One))
         {
             applyUpgrade();
         }

@@ -46,6 +46,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Transform upgradeCarPostion;
 
+    [SerializeField]
+    private Animator garageAnimator;
+
     private int score;
     private bool restart;
 
@@ -77,6 +80,7 @@ public class GameController : MonoBehaviour
     {
         waveCount += 1;
         waveText.text = "Wave " + waveCount;
+        garageAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(waveWait);
         waveText.text = "";
 
@@ -103,6 +107,8 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(spawnWait);
         }
 
+        yield return new WaitForSeconds(2);
+        garageAnimator.SetTrigger("Close");
     }
 
     public void EnemyKilled(int value)
@@ -140,10 +146,6 @@ public class GameController : MonoBehaviour
     {
         upgrades.SetActive(true);
 
-        Camera.main.transform.parent = upgradeCamerPostionNoVR;
-        Camera.main.transform.transform.localRotation = Quaternion.identity;
-        Camera.main.transform.transform.localPosition = Vector3.zero;
-
         playerController.EnableInteraction(false);
         playerController.MoveTo(upgradeCarPostion);
 
@@ -154,10 +156,6 @@ public class GameController : MonoBehaviour
     {
         upgradeController.enabled = false;
         upgrades.SetActive(false);
-
-        Camera.main.transform.parent = mainCamerPostionNoVR;
-        Camera.main.transform.transform.localRotation = Quaternion.identity;
-        Camera.main.transform.transform.localPosition = Vector3.zero;
 
         playerController.MoveTo(null);
         playerController.EnableInteraction(true);

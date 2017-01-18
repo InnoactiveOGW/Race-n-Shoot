@@ -1403,11 +1403,11 @@ GameObject:
   - 114: {fileID: 114000010878180326}
   m_Layer: 10
   m_Name: Big Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000012819149156
 GameObject:
   m_ObjectHideFlags: 1

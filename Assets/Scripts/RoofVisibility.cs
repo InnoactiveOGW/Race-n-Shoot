@@ -7,7 +7,7 @@ public class RoofVisibility : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private SkinnedMeshRenderer roofRenderer;
+    private Animation animation;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +17,6 @@ public class RoofVisibility : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-
             if (hit.collider.gameObject == this.gameObject)
                 HideRoof();
             else
@@ -27,19 +26,12 @@ public class RoofVisibility : MonoBehaviour
 
     private void HideRoof()
     {
-        if (roofRenderer != null)
-            SetBlendShapesWeightTo(100);
+        Debug.Log("HideRoof");
+        animation.Play();
     }
 
     private void ShowRoof()
     {
-        if (roofRenderer != null)
-            SetBlendShapesWeightTo(0);
-    }
-
-    private void SetBlendShapesWeightTo(int weight)
-    {
-        for (int i = 0; i < roofRenderer.sharedMesh.blendShapeCount; i++)
-            roofRenderer.SetBlendShapeWeight(i, weight);
+        animation.Rewind();
     }
 }

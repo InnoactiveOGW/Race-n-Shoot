@@ -54,12 +54,16 @@ public class PlayerController : MonoBehaviour
         Vector3 startPosition = transform.localPosition;
         Quaternion startRotation = transform.localRotation;
 
+        Vector3 startScale = transform.localScale;
+        Vector3 endScale = startScale.x == 1 ? new Vector3(10, 10, 10) : new Vector3(1, 1, 1);
+
         float timeMoved = 0;
         while (timeMoved < carTranslationTime)
         {
             timeMoved += Time.deltaTime;
             transform.transform.localPosition = Vector3.Lerp(startPosition, Vector3.zero, timeMoved / carTranslationTime);
             transform.transform.localRotation = Quaternion.Lerp(startRotation, Quaternion.identity, timeMoved / carTranslationTime);
+            transform.transform.localScale = Vector3.Lerp(startScale, endScale, timeMoved / carTranslationTime);
             yield return null;
         }
     }

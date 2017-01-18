@@ -29,10 +29,11 @@ public class MachineGunShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        float x = Input.GetAxis("RightStickX");
-        float y = Input.GetAxis("RightStickY");
+        Vector2 input = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+        float x = input.x;
+        float z = input.y;
 
-        if ((x != 0 || y != 0) && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if ((x != 0 || z != 0) && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot();
         }

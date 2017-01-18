@@ -5645,7 +5645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c40def489e84544ba1adcaff776ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 0}
+  fire: {fileID: 137000010764518678}
 --- !u!114 &114000010206559946
 MonoBehaviour:
   m_ObjectHideFlags: 1
