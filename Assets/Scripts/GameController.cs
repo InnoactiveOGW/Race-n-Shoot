@@ -7,6 +7,9 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    private Light mainLight;
+
+    [SerializeField]
     private Transform mainCamerPostionNoVR;
 
     [SerializeField]
@@ -60,8 +63,9 @@ public class GameController : MonoBehaviour
         UpdateScore();
     }
 
-    void Start()
+    public void StartGame()
     {
+        mainLight.enabled = true;
         StartCoroutine(SpawnWave());
     }
 
