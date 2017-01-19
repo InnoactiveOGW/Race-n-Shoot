@@ -4,34 +4,33 @@ using System.Collections;
 public class RoofVisibility : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
+    private Animator animator;
 
-    [SerializeField]
-    private Animation animation;
-
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        Ray ray = new Ray(Camera.main.transform.position, player.transform.position - Camera.main.transform.position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (other.gameObject.tag == "Player")
         {
-            if (hit.collider.gameObject == this.gameObject)
-                HideRoof();
-            else
-                ShowRoof();
+            HideRoof();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            ShowRoof();
         }
     }
 
     private void HideRoof()
     {
         Debug.Log("HideRoof");
-        animation.Play();
+        animator.SetTrigger("Open");
     }
 
     private void ShowRoof()
     {
-        animation.Rewind();
+        Debug.Log("ShowRoof");
+        animator.SetTrigger("Close");
     }
 }

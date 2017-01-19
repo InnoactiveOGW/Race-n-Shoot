@@ -1,0 +1,707 @@
+fileFormatVersion: 2
+guid: cff60e97ecb131b4da58195ca4e82ffa
+timeCreated: 1484821245
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: cloud1
+    100002: cloud1 1
+    100004: cloud1_end
+    100006: cloud2
+    100008: cloud2 1
+    100010: cloud2_end
+    100012: cloud3
+    100014: cloud3 1
+    100016: cloud3_end
+    100018: cloud4
+    100020: cloud4 1
+    100022: cloud4_end
+    100024: cloud5
+    100026: cloud5 1
+    100028: cloud5_end
+    100030: cloud6
+    100032: cloud6 1
+    100034: cloud6_end
+    100036: cloud7
+    100038: cloud7 1
+    100040: cloud7_end
+    100042: //RootNode
+    100044: clouds-animation
+    100046: sun
+    100048: sun 1
+    100050: sun_end
+    400000: cloud1
+    400002: cloud1 1
+    400004: cloud1_end
+    400006: cloud2
+    400008: cloud2 1
+    400010: cloud2_end
+    400012: cloud3
+    400014: cloud3 1
+    400016: cloud3_end
+    400018: cloud4
+    400020: cloud4 1
+    400022: cloud4_end
+    400024: cloud5
+    400026: cloud5 1
+    400028: cloud5_end
+    400030: cloud6
+    400032: cloud6 1
+    400034: cloud6_end
+    400036: cloud7
+    400038: cloud7 1
+    400040: cloud7_end
+    400042: //RootNode
+    400044: clouds-animation
+    400046: sun
+    400048: sun 1
+    400050: sun_end
+    4300000: cloud2
+    4300002: cloud1
+    4300004: cloud3
+    4300006: cloud4
+    4300008: sun
+    4300010: cloud5
+    4300012: cloud7
+    4300014: cloud6
+    7400000: clouds-animation|ArmatureAction
+    7400002: clouds-animation|Cube.053Action
+    7400004: clouds-animation|Cube.1022Action
+    7400006: clouds-animation|Cube.169Action
+    7400008: clouds-animation|Cube.169Action.002
+    7400010: clouds-animation|ItemcurveAction
+    7400012: clouds-animation|rock.010Action
+    9500000: //RootNode
+    13700000: cloud1
+    13700002: cloud2
+    13700004: cloud3
+    13700006: cloud4
+    13700008: cloud5
+    13700010: cloud6
+    13700012: cloud7
+    13700014: sun
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: clouds-animation|ArmatureAction
+      takeName: clouds-animation|ArmatureAction
+      firstFrame: 0
+      lastFrame: 301
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|Cube.053Action
+      takeName: clouds-animation|Cube.053Action
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|Cube.1022Action
+      takeName: clouds-animation|Cube.1022Action
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|Cube.169Action
+      takeName: clouds-animation|Cube.169Action
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|Cube.169Action.002
+      takeName: clouds-animation|Cube.169Action.002
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|ItemcurveAction
+      takeName: clouds-animation|ItemcurveAction
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: clouds-animation|rock.010Action
+      takeName: clouds-animation|rock.010Action
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: cloud1
+        weight: 1
+      - path: cloud2
+        weight: 1
+      - path: cloud3
+        weight: 1
+      - path: cloud4
+        weight: 1
+      - path: cloud5
+        weight: 1
+      - path: cloud6
+        weight: 1
+      - path: cloud7
+        weight: 1
+      - path: clouds-animation
+        weight: 1
+      - path: clouds-animation/cloud1 1
+        weight: 1
+      - path: clouds-animation/cloud1 1/cloud1_end
+        weight: 1
+      - path: clouds-animation/cloud2 1
+        weight: 1
+      - path: clouds-animation/cloud2 1/cloud2_end
+        weight: 1
+      - path: clouds-animation/cloud3 1
+        weight: 1
+      - path: clouds-animation/cloud3 1/cloud3_end
+        weight: 1
+      - path: clouds-animation/cloud4 1
+        weight: 1
+      - path: clouds-animation/cloud4 1/cloud4_end
+        weight: 1
+      - path: clouds-animation/cloud5 1
+        weight: 1
+      - path: clouds-animation/cloud5 1/cloud5_end
+        weight: 1
+      - path: clouds-animation/cloud6 1
+        weight: 1
+      - path: clouds-animation/cloud6 1/cloud6_end
+        weight: 1
+      - path: clouds-animation/cloud7 1
+        weight: 1
+      - path: clouds-animation/cloud7 1/cloud7_end
+        weight: 1
+      - path: clouds-animation/sun 1
+        weight: 1
+      - path: clouds-animation/sun 1/sun_end
+        weight: 1
+      - path: sun
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

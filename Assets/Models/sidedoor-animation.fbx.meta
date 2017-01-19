@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 7e870620c184d6e4a8813815d3e73c70
-timeCreated: 1484737287
+guid: 83d86041cb2e6ee49b02c0d4c823a78c
+timeCreated: 1484819737
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: door
-    100002: door 1
-    100004: door_end
-    100006: sidedoor
+    100000: Armature.002
+    100002: door
+    100004: door 1
+    100006: door_end
     100008: //RootNode
     100010: wood1
     100012: wood1 1
@@ -16,10 +16,10 @@ ModelImporter:
     100016: wood2
     100018: wood2 1
     100020: wood2_end
-    400000: door
-    400002: door 1
-    400004: door_end
-    400006: sidedoor
+    400000: Armature.002
+    400002: door
+    400004: door 1
+    400006: door_end
     400008: //RootNode
     400010: wood1
     400012: wood1 1
@@ -30,13 +30,13 @@ ModelImporter:
     4300000: door
     4300002: wood2
     4300004: wood1
-    7400000: sidedoor|Armature.002Action
-    7400002: sidedoor|Cube.053Action
-    7400004: sidedoor|Cube.1022Action
-    7400006: sidedoor|Cube.169Action
-    7400008: sidedoor|Cube.169Action.002
-    7400010: sidedoor|ItemcurveAction
-    7400012: sidedoor|rock.010Action
+    7400000: Armature.002|Armature.002Action
+    7400002: Armature.002|Cube.053Action
+    7400004: Armature.002|Cube.1022Action
+    7400006: Armature.002|Cube.169Action
+    7400008: Armature.002|Cube.169Action.002
+    7400010: Armature.002|ItemcurveAction
+    7400012: Armature.002|rock.010Action
     9500000: //RootNode
     13700000: door
     13700002: wood1

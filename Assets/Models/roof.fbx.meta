@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: 63dc6f2f35fa2464986f71c14ab41eaa
+timeCreated: 1484821734
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: roof
+    100002: //RootNode
+    100004: roof-animation
+    100006: roof-trash
+    100008: roof-trash_end
+    100010: roof1
+    100012: roof1_end
+    100014: roof1b
+    100016: roof1b_end
+    100018: roof2
+    100020: roof2_end
+    100022: roof2b
+    100024: roof2b_end
+    100026: roof3
+    100028: roof3_end
+    100030: roof3b
+    100032: roof3b_end
+    100034: roof4
+    100036: roof4_end
+    100038: roof4b
+    100040: roof4b_end
+    400000: //RootNode
+    400002: roof
+    400004: roof-animation
+    400006: roof-trash
+    400008: roof-trash_end
+    400010: roof1
+    400012: roof1_end
+    400014: roof1b
+    400016: roof1b_end
+    400018: roof2
+    400020: roof2_end
+    400022: roof2b
+    400024: roof2b_end
+    400026: roof3
+    400028: roof3_end
+    400030: roof3b
+    400032: roof3b_end
+    400034: roof4
+    400036: roof4_end
+    400038: roof4b
+    400040: roof4b_end
+    4300000: roof
+    7400000: roof-animation|open
+    7400002: roof-animation|close
+    9500000: //RootNode
+    13700000: roof
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: roof-animation|open
+      takeName: roof-animation|Armature.003Action.001
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roof
+        weight: 1
+      - path: roof-animation
+        weight: 1
+      - path: roof-animation/roof-trash
+        weight: 1
+      - path: roof-animation/roof-trash/roof-trash_end
+        weight: 1
+      - path: roof-animation/roof1
+        weight: 1
+      - path: roof-animation/roof1/roof1_end
+        weight: 1
+      - path: roof-animation/roof1b
+        weight: 1
+      - path: roof-animation/roof1b/roof1b_end
+        weight: 1
+      - path: roof-animation/roof2
+        weight: 1
+      - path: roof-animation/roof2/roof2_end
+        weight: 1
+      - path: roof-animation/roof2b
+        weight: 1
+      - path: roof-animation/roof2b/roof2b_end
+        weight: 1
+      - path: roof-animation/roof3
+        weight: 1
+      - path: roof-animation/roof3/roof3_end
+        weight: 1
+      - path: roof-animation/roof3b
+        weight: 1
+      - path: roof-animation/roof3b/roof3b_end
+        weight: 1
+      - path: roof-animation/roof4
+        weight: 1
+      - path: roof-animation/roof4/roof4_end
+        weight: 1
+      - path: roof-animation/roof4b
+        weight: 1
+      - path: roof-animation/roof4b/roof4b_end
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: roof-animation|close
+      takeName: roof-animation|Armature.003Action.001
+      firstFrame: 49
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roof
+        weight: 1
+      - path: roof-animation
+        weight: 1
+      - path: roof-animation/roof-trash
+        weight: 1
+      - path: roof-animation/roof-trash/roof-trash_end
+        weight: 1
+      - path: roof-animation/roof1
+        weight: 1
+      - path: roof-animation/roof1/roof1_end
+        weight: 1
+      - path: roof-animation/roof1b
+        weight: 1
+      - path: roof-animation/roof1b/roof1b_end
+        weight: 1
+      - path: roof-animation/roof2
+        weight: 1
+      - path: roof-animation/roof2/roof2_end
+        weight: 1
+      - path: roof-animation/roof2b
+        weight: 1
+      - path: roof-animation/roof2b/roof2b_end
+        weight: 1
+      - path: roof-animation/roof3
+        weight: 1
+      - path: roof-animation/roof3/roof3_end
+        weight: 1
+      - path: roof-animation/roof3b
+        weight: 1
+      - path: roof-animation/roof3b/roof3b_end
+        weight: 1
+      - path: roof-animation/roof4
+        weight: 1
+      - path: roof-animation/roof4/roof4_end
+        weight: 1
+      - path: roof-animation/roof4b
+        weight: 1
+      - path: roof-animation/roof4b/roof4b_end
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
