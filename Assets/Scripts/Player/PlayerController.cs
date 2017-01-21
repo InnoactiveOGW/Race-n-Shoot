@@ -24,6 +24,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float carTranslationTime;
 
+    [SerializeField]
+    private Transform missileHolder;
+    [SerializeField]
+    private GameObject missilePrefab;
+    [SerializeField]
+    private GameObject missile;
+
     void Awake()
     {
         gunBarrelEnd = singleFireWeapon.GetComponentInChildren<MachineGunShooting>().gameObject;
@@ -70,7 +77,6 @@ public class PlayerController : MonoBehaviour
 
     // Items
 
-
     public bool NeedsHealthpack()
     {
         return health.NeedsHealthpack();
@@ -80,6 +86,20 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("UseHealthPack");
         ResetHealth();
+    }
+
+    public bool NeedsAmunition()
+    {
+        return missileHolder.childCount == 0;
+    }
+
+    public void UseAmunition()
+    {
+        missile = Instantiate(missilePrefab);
+        missile.transform.parent = missileHolder;
+        missile.transform.localPosition = Vector3.zero;
+        missile.transform.localRotation = Quaternion.identity;
+        missile.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void UseInvincibility(float duration)
@@ -95,21 +115,11 @@ public class PlayerController : MonoBehaviour
         movement.speedBoostTimer = duration;
     }
 
-    public void UseAmunitionPack()
-    {
-        Debug.Log("UseAmunitionPack");
-    }
-
     // Upgrades
 
     public void ApplyHealthUpgrade()
     {
         health.AddArmor();
-    }
-
-    public void ApplyMissileUpgrade()
-    {
-
     }
 
     public void ApplyDoubleFireUpgrade()

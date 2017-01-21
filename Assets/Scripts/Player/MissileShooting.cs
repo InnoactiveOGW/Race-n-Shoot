@@ -5,7 +5,20 @@ using System.Collections.Generic;
 public class MissileShooting : MonoBehaviour
 {
     [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private GameObject flying;
+    [SerializeField]
+    private GameObject fire;
+    [SerializeField]
+    private GameObject fireBall;
+    [SerializeField]
     private Transform[] missileCheckpoints;
+    [SerializeField]
+    private float speed = 20f;
+    [SerializeField]
+    private float damage = 100f;
+
 
     private GameObject closestEnemy;
     private bool wasFired;
@@ -27,7 +40,6 @@ public class MissileShooting : MonoBehaviour
         if (enemyVectors.Length == 0)
             return;
 
-        Debug.Log("fire missile");
         wasFired = true;
 
         gameObject.transform.parent = null;
@@ -36,23 +48,29 @@ public class MissileShooting : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         positions.Add(transform.position);
 
-        // List<Transform> checkpoints = new List<Transform>(missileCheckpoints);
-        // while (checkpoints.Count > 0)
-        // {
-        //     int index = Random.Range(0, checkpoints.Count - 1);
-        //     Transform randomCheckpoint = checkpoints[index];
-        //     checkpoints.Remove(randomCheckpoint);
-        //     positions.Add(randomCheckpoint.position);
-        // }
+        List<Transform> checkpoints = new List<Transform>(missileCheckpoints);
+        while (positions.Count < 3 && checkpoints.Count > 0)
+        {
+            int index = Random.Range(0, checkpoints.Count - 1);
+            Transform randomCheckpoint = checkpoints[index];
+            checkpoints.Remove(randomCheckpoint);
+            positions.Add(randomCheckpoint.position);
+        }
 
-        positions.Add(missileCheckpoints[0].position);
-        positions.Add(missileCheckpoints[1].position);
         positions.Add(closestEnemy.transform.position);
 
         Vector3[] positionsArray = positions.ToArray();
 
-        LTDescr tweenId = LeanTween.move(this.gameObject, positionsArray, 5f).setEase(LeanTweenType.easeInQuad).setOrientToPath(true);
+        float distance = 0f;
+        for (int i = 0; i < positionsArray.Length - 1; i++)
+        {
+            distance += Vector3.Distance(positionsArray[i], positionsArray[i + 1]);
+        }
+
+        LTDescr tweenId = LeanTween.move(this.gameObject, positionsArray, distance / speed).setEase(LeanTweenType.easeInQuad).setOrientToPath(true);
         tweenId.setOnComplete(tweenCompleted);
+
+        flying.SetActive(true);
     }
 
     private Vector3[] getEnemyVectors(GameObject[] enemyTargets)
@@ -95,26 +113,76 @@ public class MissileShooting : MonoBehaviour
         if (!enabled)
             return;
 
-        Debug.Log("tween completed");
+        StartCoroutine(Rotate(Quaternion.LookRotation(closestEnemy.transform.position - transform.position), 0.1f));
 
-        LTDescr tweenId = LeanTween.move(this.gameObject, closestEnemy.transform.position, 1f).setOrientToPath(true);
+        float distance = Vector3.Distance(transform.position, closestEnemy.transform.position);
+        LTDescr tweenId = LeanTween.move(this.gameObject, closestEnemy.transform.position, distance / speed);
         tweenId.setOnComplete(tweenCompleted);
+    }
+
+    private IEnumerator Rotate(Quaternion rotation, float duration)
+    {
+        Quaternion startRotation = transform.rotation;
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            transform.rotation = Quaternion.Slerp(startRotation, rotation, t);
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeOutFireBall()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Quaternion startRotation = transform.rotation;
+        float elapsedTime = 0.0f;
+        float duration = 0.8f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            Renderer renderer = fireBall.GetComponent<SkinnedMeshRenderer>();
+            Debug.Log("material count: " + renderer.materials.Length);
+            for (int i = 0; i < renderer.materials.Length; i++)
+            {
+                Debug.Log("t: " + t);
+                Color color = renderer.materials[i].color;
+                color.a = Mathf.Lerp(1f, 0f, t);
+                Debug.Log("alpha: " + color.a);
+                renderer.materials[i].color = color;
+            }
+            yield return null;
+        }
+
+        Destroy(fireBall);
     }
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnCollisionEnter");
         if (!wasFired)
             return;
 
         if (other.gameObject.tag == "Player")
             return;
 
-        Debug.Log("missile triggered");
+        Health health = other.GetComponent<Health>();
+        if (health != null)
+            health.TakeDamage(damage);
 
-        if (other.gameObject.tag == "Enemy")
-            closestEnemy.GetComponent<EnemyHealth>().TakeDamage(100);
-
-        enabled = false;
-        Destroy(gameObject);
+        LeanTween.cancelAll();
+        transform.rotation = Quaternion.identity;
+        animator.SetTrigger("Explode");
+        StartCoroutine(FadeOutFireBall());
+        fire.SetActive(true);
+        Destroy(gameObject, 5);
     }
+
+
 }

@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 0f4be7852d998e74baedcc25865565e7
+timeCreated: 1484991635
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: ball
+    100004: ball 1
+    100006: ball_end
+    100008: boost
+    100010: fire-big
+    100012: fire-big-2
+    100014: fire-high
+    100016: fire-small
+    100018: //RootNode
+    100020: Solid.002
+    100022: Solid.004
+    100024: spitze
+    100026: spitze 1
+    100028: spitze_end
+    100030: teil1
+    100032: teil1 1
+    100034: teil1_end
+    100036: teil2
+    100038: teil2 1
+    100040: teil2_end
+    100042: teil3
+    100044: teil3 1
+    100046: teil3_end
+    100048: teil4
+    100050: teil4 1
+    100052: teil4_end
+    400000: Armature
+    400002: ball
+    400004: ball 1
+    400006: ball_end
+    400008: boost
+    400010: fire-big
+    400012: fire-big-2
+    400014: fire-high
+    400016: fire-small
+    400018: //RootNode
+    400020: Solid.002
+    400022: Solid.004
+    400024: spitze
+    400026: spitze 1
+    400028: spitze_end
+    400030: teil1
+    400032: teil1 1
+    400034: teil1_end
+    400036: teil2
+    400038: teil2 1
+    400040: teil2_end
+    400042: teil3
+    400044: teil3 1
+    400046: teil3_end
+    400048: teil4
+    400050: teil4 1
+    400052: teil4_end
+    4300000: ball
+    4300002: teil4
+    4300004: teil3
+    4300006: teil2
+    4300008: teil1
+    4300010: spitze
+    4300012: boost
+    4300014: fire-big
+    4300016: fire-big-2
+    4300018: fire-high
+    4300020: fire-small
+    4300022: Solid.002
+    4300024: Solid.004
+    7400000: Armature|ArmatureAction
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: ball
+    13700002: boost
+    13700004: fire-big
+    13700006: fire-big-2
+    13700008: fire-high
+    13700010: fire-small
+    13700012: Solid.002
+    13700014: Solid.004
+    13700016: spitze
+    13700018: teil1
+    13700020: teil2
+    13700022: teil3
+    13700024: teil4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

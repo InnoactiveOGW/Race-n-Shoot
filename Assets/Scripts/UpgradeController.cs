@@ -105,7 +105,7 @@ public class UpgradeController : MonoBehaviour
                 break;
 
             case 1:
-                playerController.ApplyMissileUpgrade();
+                gameController.ShowAmunition();
                 break;
 
             case 2:

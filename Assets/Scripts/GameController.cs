@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Transform[] spawns;
     private float waveCount;
+    [SerializeField]
+    private float upgradeWave;
     private float enemyCount;
 
     [SerializeField]
@@ -52,6 +54,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Animator garageAnimator;
 
+    [SerializeField]
+    private GameObject amunition;
+
+    [SerializeField]
+    private float empDuration = 5f;
+
     private int score;
     private bool restart;
 
@@ -61,6 +69,11 @@ public class GameController : MonoBehaviour
         gameOverText.text = "";
         restartText.text = "";
         UpdateScore();
+    }
+
+    void Start()
+    {
+        StartCoroutine(SpawnWave());
     }
 
     public void StartGame()
@@ -136,7 +149,7 @@ public class GameController : MonoBehaviour
     {
         playerController.ResetHealth();
 
-        if (!upgradeController.hasAllUpgrades && waveCount % 1 == 0)
+        if (!upgradeController.hasAllUpgrades && waveCount % upgradeWave == 0)
         {
             ShowUpgrades();
         }
@@ -165,6 +178,31 @@ public class GameController : MonoBehaviour
         playerController.EnableInteraction(true);
 
         StartCoroutine(SpawnWave());
+    }
+
+    public void ShowAmunition()
+    {
+        amunition.SetActive(true);
+    }
+
+    public void EMP()
+    {
+        StartCoroutine(EMPCoroutine());
+    }
+
+    private IEnumerator EMPCoroutine()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyController>().EnableInteraction(false);
+        }
+
+        yield return new WaitForSeconds(empDuration);
+
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyController>().EnableInteraction(true);
+        }
     }
 
     public void PlayerDied()

@@ -26,6 +26,7 @@ public class EnemyHealth : FireAnimationObject
     public override void OnDeath()
     {
         base.OnDeath();
+        GetComponent<BoxCollider>().enabled = false;
         gameController.EnemyKilled(10);
     }
 }

@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012723069568}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.8182793, y: 9.914841, z: 28.926533}
+  m_LocalPosition: {x: -2.67, y: 3.6000004, z: 38.91}
   m_LocalScale: {x: 4100.9395, y: 4100.9395, z: 279.77133}
   m_LocalEulerAnglesHint: {x: 0, y: 264, z: 0}
   m_Children:
@@ -179,4 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableType: 0
-  respawnTime: 5
+  respawnTime: 10
