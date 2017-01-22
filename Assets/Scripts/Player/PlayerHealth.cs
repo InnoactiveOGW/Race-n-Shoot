@@ -1,30 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerHealth : FireAnimationObject
 {
-    [SerializeField]
     private PlayerController playerController;
+    private Renderer[] renderers;
 
     [SerializeField]
     private float regenSpeed = 1f;
 
     [SerializeField]
-    private RawImage bloodPulse;
+    private Color fullHealthColor;
     [SerializeField]
-    private GameObject bloodSplatter1;
-    [SerializeField]
-    private GameObject bloodSplatter2;
-    [SerializeField]
-    private GameObject bloodSplatter3;
-
-    private float previousHealth;
-    private float pulseSpeed = 1.5f;
-
-    private Color splatterZero;
-    private Color splatterLow;
-    private Color splatterFull;
+    private Color zeroHealthColor;
 
     [HideInInspector]
     public float invincibilityTimer;
@@ -47,11 +37,12 @@ public class PlayerHealth : FireAnimationObject
 
     void Awake()
     {
-        splatterZero = bloodPulse.color;
-        splatterLow = bloodPulse.color;
-        splatterLow.a = 90f / 255f;
-        splatterFull = bloodPulse.color;
-        splatterFull.a = 180f / 255f;
+        playerController = GetComponent<PlayerController>();
+        List<Renderer> renderersList = new List<Renderer>(GetComponentsInChildren<MeshRenderer>());
+        renderersList.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
+        renderers = renderersList.ToArray();
+
+
 
         startingArmor = 0f;
         currentArmor = 0f;
@@ -125,17 +116,9 @@ public class PlayerHealth : FireAnimationObject
             SetArmorUI();
         }
 
-        bloodSplatter1.SetActive(currentHealth / startingHealth <= 0.75f);
-        bloodSplatter2.SetActive(currentHealth / startingHealth <= 0.50f);
-        bloodSplatter3.SetActive(currentHealth / startingHealth <= 0.25f);
-
-        if (currentHealth / startingHealth <= 0.75f)
+        foreach (Renderer renderer in renderers)
         {
-            bloodPulse.color = Color.Lerp(splatterLow, splatterFull, Mathf.PingPong(Time.time * pulseSpeed, 1f));
-        }
-        else
-        {
-            bloodPulse.color = splatterZero;
+            renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
         }
     }
 

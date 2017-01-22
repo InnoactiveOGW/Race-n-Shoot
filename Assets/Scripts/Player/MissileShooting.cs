@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class MissileShooting : MonoBehaviour
 {
-    [SerializeField]
     private Animator animator;
     [SerializeField]
     private GameObject flying;
@@ -15,13 +14,21 @@ public class MissileShooting : MonoBehaviour
     [SerializeField]
     private Transform[] missileCheckpoints;
     [SerializeField]
+    private AudioSource flyingSound;
+    [SerializeField]
+    private AudioSource explosionSound;
+    [SerializeField]
     private float speed = 20f;
     [SerializeField]
     private float damage = 100f;
 
-
     private GameObject closestEnemy;
     private bool wasFired;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -35,15 +42,23 @@ public class MissileShooting : MonoBehaviour
         if (wasFired)
             return;
 
-        GameObject[] enemyTargets = GameObject.FindGameObjectsWithTag("EnemyTarget");
-        Vector3[] enemyVectors = getEnemyVectors(enemyTargets);
+        List<GameObject> enemyTargets = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemyTarget"));
+        for (int i = 0; i < enemyTargets.Count; i++)
+        {
+            if (enemyTargets[i].GetComponentInParent<Health>().isDead)
+            {
+                enemyTargets.RemoveAt(i);
+            }
+        }
+
+        Vector3[] enemyVectors = GetEnemyVectors(enemyTargets);
         if (enemyVectors.Length == 0)
             return;
 
         wasFired = true;
 
         gameObject.transform.parent = null;
-        closestEnemy = enemyTargets[getClosestEnemy(enemyVectors)];
+        closestEnemy = enemyTargets[GetClosestEnemy(enemyVectors)];
 
         List<Vector3> positions = new List<Vector3>();
         positions.Add(transform.position);
@@ -71,12 +86,13 @@ public class MissileShooting : MonoBehaviour
         tweenId.setOnComplete(tweenCompleted);
 
         flying.SetActive(true);
+        flyingSound.Play();
     }
 
-    private Vector3[] getEnemyVectors(GameObject[] enemyTargets)
+    private Vector3[] GetEnemyVectors(List<GameObject> enemyTargets)
     {
-        Vector3[] enemyVectors = new Vector3[enemyTargets.Length];
-        for (int i = 0; i < enemyTargets.Length; i++)
+        Vector3[] enemyVectors = new Vector3[enemyTargets.Count];
+        for (int i = 0; i < enemyTargets.Count; i++)
         {
             enemyVectors[i] = enemyTargets[i].transform.position - transform.position;
         }
@@ -85,7 +101,7 @@ public class MissileShooting : MonoBehaviour
     }
 
     // Find enemy closest to aim vector on the horizontal plane and return verticle angle to enemy.
-    private int getClosestEnemy(Vector3[] enemyVectors)
+    private int GetClosestEnemy(Vector3[] enemyVectors)
     {
         Vector3 aimVector = transform.forward;
 
@@ -148,13 +164,10 @@ public class MissileShooting : MonoBehaviour
             float t = elapsedTime / duration;
 
             Renderer renderer = fireBall.GetComponent<SkinnedMeshRenderer>();
-            Debug.Log("material count: " + renderer.materials.Length);
             for (int i = 0; i < renderer.materials.Length; i++)
             {
-                Debug.Log("t: " + t);
                 Color color = renderer.materials[i].color;
                 color.a = Mathf.Lerp(1f, 0f, t);
-                Debug.Log("alpha: " + color.a);
                 renderer.materials[i].color = color;
             }
             yield return null;
@@ -165,12 +178,13 @@ public class MissileShooting : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnCollisionEnter");
         if (!wasFired)
             return;
 
         if (other.gameObject.tag == "Player")
             return;
+
+        flyingSound.Stop();
 
         Health health = other.GetComponent<Health>();
         if (health != null)
@@ -178,9 +192,13 @@ public class MissileShooting : MonoBehaviour
 
         LeanTween.cancelAll();
         transform.rotation = Quaternion.identity;
+
         animator.SetTrigger("Explode");
+        explosionSound.Play();
+
         StartCoroutine(FadeOutFireBall());
         fire.SetActive(true);
+
         Destroy(gameObject, 5);
     }
 

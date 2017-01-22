@@ -5,7 +5,6 @@ using OvrTouch.Controllers;
 
 public class Lever : MonoBehaviour
 {
-    [SerializeField]
     private GameController gameController;
 
     [SerializeField]
@@ -20,11 +19,15 @@ public class Lever : MonoBehaviour
 
     private bool isInBottomPosition;
 
+    void Awake()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
+
     void Update()
     {
         if (hand == null)
             return;
-
 
         if ((hand.Handedness == HandednessId.Left && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) == 0)
         || (hand.Handedness == HandednessId.Right && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) == 0))

@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private PlayerController playerController;
+
+    [SerializeField]
     private float airRes;
     [SerializeField]
     private float groundRes;
@@ -32,8 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        speed = normalSpeed;
+        playerController = GetComponent<PlayerController>();
         cController = GetComponent<CharacterController>();
+        speed = normalSpeed;
     }
 
     void Update()
@@ -46,12 +50,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 boostFire.SetActive(false);
                 speed = normalSpeed;
+                playerController.SpeedBoostStopped();
             }
         }
 
         Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
         float h = input.x;
         float v = input.y;
+
+        if (h == 0 && v == 0)
+        {
+            playerController.StoppedMoving();
+            return;
+        }
+        playerController.IsMoving();
 
         Vector3 inputDir = new Vector3(h, 0f, v);
 

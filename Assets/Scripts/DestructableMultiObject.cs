@@ -4,14 +4,17 @@ using System.Collections;
 
 public class DestructableMultiObject : Health
 {
-    [SerializeField]
     private BoxCollider boxCollider;
+    private Animator animator;
 
     [SerializeField]
     private SkinnedMeshRenderer[] smRenderers;
 
-    [SerializeField]
-    private Animator animator;
+    void Awake()
+    {
+        boxCollider = GetComponent<BoxCollider>();
+        animator = GetComponent<Animator>();
+    }
 
     public override void SetHealthUI()
     {
@@ -26,6 +29,7 @@ public class DestructableMultiObject : Health
 
     public override void OnDeath()
     {
+        base.OnDeath();
         animator.SetTrigger("Die");
         boxCollider.enabled = false;
     }

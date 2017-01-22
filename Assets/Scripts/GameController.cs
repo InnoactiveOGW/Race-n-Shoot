@@ -9,10 +9,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Light mainLight;
 
-    [SerializeField]
-    private Transform mainCamerPostionNoVR;
-
-    [SerializeField]
     private PlayerController playerController;
     [SerializeField]
     private GameObject enemy;
@@ -47,12 +43,17 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject upgrades;
     [SerializeField]
-    private Transform upgradeCamerPostionNoVR;
-    [SerializeField]
     private Transform upgradeCarPostion;
 
     [SerializeField]
     private Animator garageAnimator;
+    [SerializeField]
+    private AudioSource garageOpenSound;
+    [SerializeField]
+    private AudioSource garageCloseSound;
+
+    [SerializeField]
+    private AudioSource screenInterferenceSound;
 
     [SerializeField]
     private GameObject amunition;
@@ -65,14 +66,18 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        waveText.text = "";
-        gameOverText.text = "";
-        restartText.text = "";
-        UpdateScore();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     void Start()
     {
+        upgradeController.enabled = false;
+
+        waveText.text = "";
+        gameOverText.text = "";
+        restartText.text = "";
+        UpdateScore();
+
         StartCoroutine(SpawnWave());
     }
 
@@ -98,6 +103,7 @@ public class GameController : MonoBehaviour
         waveCount += 1;
         waveText.text = "Wave " + waveCount;
         garageAnimator.SetTrigger("Open");
+        garageOpenSound.Play();
         yield return new WaitForSeconds(waveWait);
         waveText.text = "";
 
@@ -126,6 +132,7 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         garageAnimator.SetTrigger("Close");
+        garageCloseSound.Play();
     }
 
     public void EnemyKilled(int value)
@@ -187,6 +194,7 @@ public class GameController : MonoBehaviour
 
     public void EMP()
     {
+        screenInterferenceSound.Play();
         StartCoroutine(EMPCoroutine());
     }
 

@@ -3,9 +3,10 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public Transform target;
-    public float smoothing;
+    [SerializeField]
+    private Transform target;
+    [SerializeField]
+    private float smoothing;
 
     Vector3 offset;
 

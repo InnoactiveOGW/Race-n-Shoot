@@ -10,16 +10,13 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField]
     private float timeBetweenBullets = 0.166f;
     [SerializeField]
+    private const float range = 20;
+    [SerializeField]
     private int damagePerShot = 5;
 
-    private const float range = 20;
-
-    [SerializeField]
     private LineRenderer gunLine;
-    [SerializeField]
     private Light gunLight;
-    [SerializeField]
-    private AudioSource gunAudio;
+    private AudioSource[] gunSounds;
 
     private GameObject player;
     private PlayerHealth playerHealth;
@@ -34,6 +31,10 @@ public class EnemyShooting : MonoBehaviour
 
     void Awake()
     {
+        gunLine = GetComponent<LineRenderer>();
+        gunLight = GetComponent<Light>();
+        gunSounds = GetComponents<AudioSource>();
+
         player = GameObject.FindWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
     }
@@ -83,7 +84,9 @@ public class EnemyShooting : MonoBehaviour
         bulletTimer = 0f;
         bulletCounter += 1;
 
-        gunAudio.Play();
+        AudioSource gunSound = gunSounds[Random.Range(0, gunSounds.Length - 1)];
+        gunSound.volume = 0.4f;
+        gunSound.Play();
 
         gunLight.enabled = true;
 

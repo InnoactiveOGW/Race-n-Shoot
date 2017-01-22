@@ -6,22 +6,26 @@ public class Lightning : ThrowableItem
     private GameController gameController;
     private ItemsController itemsController;
 
-    [SerializeField]
     private Rigidbody rigidbody;
-    [SerializeField]
     private MeshRenderer renderer;
-    [SerializeField]
-    private GameObject lightning;
-    [SerializeField]
-    private SkinnedMeshRenderer smRenderer;
     [SerializeField]
     private Animator animator;
 
     [SerializeField]
-    private float damageRadius = 10f;
+    private GameObject lightning;
+    [SerializeField]
+    private SkinnedMeshRenderer smRenderer;
+
+    [SerializeField]
+    private float damageRadius = 20f;
+    [SerializeField]
+    private float maxDamage = 200f;
 
     void Awake()
     {
+        rigidbody = GetComponent<Rigidbody>();
+        renderer = GetComponent<MeshRenderer>();
+
         gameController = FindObjectOfType<GameController>();
         itemsController = FindObjectOfType<ItemsController>();
     }
@@ -66,7 +70,23 @@ public class Lightning : ThrowableItem
 
     private void DamageSurroundingEnemies(Vector3 position)
     {
-        Collider[] colliders = Physics.OverlapSphere(position, );
+        Collider[] colliders = Physics.OverlapSphere(position, damageRadius);
+        foreach (Collider collider in colliders)
+        {
+            Health health = collider.GetComponent<Health>();
+            if (health == null)
+                continue;
 
+            float distance = Vector3.Distance(collider.transform.position, position);
+            if (distance > damageRadius)
+            {
+                health.TakeDamage(maxDamage);
+                continue;
+            }
+
+            float relativeDistance = (damageRadius - distance) / damageRadius;
+            float damage = relativeDistance * maxDamage;
+            health.TakeDamage(damage);
+        }
     }
 }

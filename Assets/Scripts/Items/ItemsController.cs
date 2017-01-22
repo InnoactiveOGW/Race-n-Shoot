@@ -1,14 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public enum CollectableType
-{
-    Random,
-    HealthPack,
-    AmunitionPack,
-    Count
-};
-
 public enum ItemType
 {
     None,
@@ -17,8 +9,7 @@ public enum ItemType
     Invincibility,
     SpeedBoost,
     EMP,
-    Lightning,
-    Count
+    Lightning
 };
 
 
@@ -28,7 +19,6 @@ public class ItemsController : MonoBehaviour
     [HideInInspector]
     public ItemType currentItem = ItemType.None;
 
-    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
@@ -43,6 +33,11 @@ public class ItemsController : MonoBehaviour
     [SerializeField]
     private GameObject lightningBall;
 
+    void Awake()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+
     void Update()
     {
         float trigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
@@ -53,14 +48,14 @@ public class ItemsController : MonoBehaviour
         }
     }
 
-    public bool CanCollectItem(CollectableType collectableType)
+    public bool CanCollectItem(ItemType itemType)
     {
-        switch (collectableType)
+        switch (itemType)
         {
-            case CollectableType.HealthPack:
+            case ItemType.HealthPack:
                 return playerController.NeedsHealthpack();
 
-            case CollectableType.AmunitionPack:
+            case ItemType.AmunitionPack:
                 return playerController.NeedsAmunition();
 
             default:
@@ -68,28 +63,12 @@ public class ItemsController : MonoBehaviour
         }
     }
 
-    public void CollectItem(CollectableType collectableType)
+    public void CollectItem(ItemType itemType)
     {
-        ItemType itemType = ItemType.None;
-        switch (collectableType)
+        if (itemType == ItemType.HealthPack || itemType == ItemType.AmunitionPack)
         {
-            case CollectableType.Random:
-                int i = 6; //Random.Range(3, (int)ItemType.Count);
-                itemType = (ItemType)i;
-                break;
-
-            case CollectableType.HealthPack:
-                itemType = ItemType.HealthPack;
-                break;
-
-            case CollectableType.AmunitionPack:
-                itemType = ItemType.AmunitionPack;
-                break;
-        }
-
-        if (collectableType != CollectableType.Random)
             UseItem(itemType);
-
+        }
         else
         {
             currentItem = itemType;

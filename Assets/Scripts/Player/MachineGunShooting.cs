@@ -3,25 +3,28 @@ using System.Collections;
 
 public class MachineGunShooting : MonoBehaviour
 {
-
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+    private float effectsDisplayTime = 0.2f;
 
-    float timer;
-    Ray shootRay;
-    RaycastHit shootHit;
-    int shootableMask;
+    private LineRenderer gunLine;
+    private Light gunLight;
     [SerializeField]
-    LineRenderer gunLine;
+    private AudioSource[] gunSounds;
     [SerializeField]
-    Light gunLight;
-    [SerializeField]
-    AudioSource gunAudio;
-    float effectsDisplayTime = 0.2f;
+    private AudioSource[] shellSounds;
+
+    private int shootableMask;
+    private float timer;
+    private Ray shootRay;
+    private RaycastHit shootHit;
 
     void Awake()
     {
+        gunLine = GetComponent<LineRenderer>();
+        gunLight = GetComponent<Light>();
+
         shootableMask = LayerMask.GetMask("Shootable");
     }
 
@@ -54,7 +57,9 @@ public class MachineGunShooting : MonoBehaviour
     {
         timer = 0f;
 
-        gunAudio.Play();
+        AudioSource gunSound = gunSounds[Random.Range(0, gunSounds.Length - 1)];
+        gunSound.volume = 0.5f;
+        gunSound.Play();
 
         gunLight.enabled = true;
 
@@ -80,5 +85,15 @@ public class MachineGunShooting : MonoBehaviour
         }
 
         gunLine.enabled = true;
+
+        StartCoroutine(PlayShellSound());
+    }
+
+    private IEnumerator PlayShellSound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AudioSource shellSound = shellSounds[Random.Range(0, shellSounds.Length - 1)];
+        shellSound.volume = 0.2f;
+        shellSound.Play();
     }
 }

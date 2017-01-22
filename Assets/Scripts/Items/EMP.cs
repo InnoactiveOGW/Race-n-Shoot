@@ -6,15 +6,16 @@ public class EMP : ThrowableItem
     private GameController gameController;
     private ItemsController itemsController;
 
-    [SerializeField]
     private Rigidbody rigidbody;
-    [SerializeField]
     private MeshRenderer renderer;
     [SerializeField]
     private GameObject shockwave;
 
     void Awake()
     {
+        rigidbody = GetComponent<Rigidbody>();
+        renderer = GetComponent<MeshRenderer>();
+
         gameController = FindObjectOfType<GameController>();
         itemsController = FindObjectOfType<ItemsController>();
     }

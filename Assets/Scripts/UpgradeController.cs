@@ -4,101 +4,51 @@ using System.Collections.Generic;
 
 public class UpgradeController : MonoBehaviour
 {
-    [SerializeField]
     private GameController gameController;
-    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
-    private GameObject defaultWeapon;
-    [SerializeField]
-    private GameObject[] upgrades;
-    [SerializeField]
-    private GameObject[] upgradeImages;
-    [SerializeField]
-    private GameObject[] upgradeImagesSelected;
-
-    private int selectedIndex;
-    private List<int> appliedUpgrades;
-
+    private int numOfUpgrades = 3;
+    [HideInInspector]
     public bool hasAllUpgrades;
+    private List<Upgrade> appliedUpgrades;
+
+    private Upgrade selectedUpgrade;
 
     void Awake()
     {
-        appliedUpgrades = new List<int>();
+        gameController = FindObjectOfType<GameController>();
+        playerController = FindObjectOfType<PlayerController>();
+
+        appliedUpgrades = new List<Upgrade>();
         hasAllUpgrades = false;
     }
 
-    void OnEnable()
-    {
-        selectedIndex = -1;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-        float h = input.y;
-        bool left = h < 0;
-        bool right = h > 0;
-
-        Debug.Log("left: " + left + " right: " + right);
-
-        if (left || right)
+        if (selectedUpgrade != null && OVRInput.Get(OVRInput.Button.One))
         {
-            int newIndex = selectedIndex;
-
-            bool isValidUpgrade = false;
-            while (!isValidUpgrade)
-            {
-                newIndex += left ? -1 : 1;
-                newIndex = newIndex < 0 ? upgrades.Length - 1 : (newIndex >= upgrades.Length ? 0 : newIndex);
-
-                if (!appliedUpgrades.Contains(newIndex))
-                    isValidUpgrade = true;
-            }
-
-            chooseUpgrade(newIndex);
-        }
-
-        if (selectedIndex >= 0 && OVRInput.GetDown(OVRInput.Button.One))
-        {
-            applyUpgrade();
+            ApplyUpgrade();
         }
     }
 
-    private void chooseUpgrade(int newIndex)
+    public void SelectUpgrade(Upgrade upgrade)
     {
-        if (newIndex == selectedIndex)
+        if (appliedUpgrades.Contains(upgrade))
             return;
 
-        if (selectedIndex != -1)
+        if (selectedUpgrade != null)
         {
-            upgrades[selectedIndex].SetActive(false);
-            upgradeImagesSelected[selectedIndex].SetActive(false);
-            upgradeImages[selectedIndex].SetActive(true);
-
-            if (selectedIndex == 2)
-            {
-                defaultWeapon.SetActive(true);
-            }
+            selectedUpgrade.Deselect();
         }
 
-        selectedIndex = newIndex;
-
-        if (selectedIndex == 2)
-        {
-            defaultWeapon.SetActive(false);
-        }
-
-        upgradeImages[selectedIndex].SetActive(false);
-        upgradeImagesSelected[selectedIndex].SetActive(true);
-        upgrades[selectedIndex].SetActive(true);
+        selectedUpgrade = upgrade;
+        selectedUpgrade.Select();
     }
 
-    private void applyUpgrade()
+    private void ApplyUpgrade()
     {
-        switch (selectedIndex)
+        switch (selectedUpgrade.index)
         {
             case 0:
                 playerController.ApplyHealthUpgrade();
@@ -116,10 +66,11 @@ public class UpgradeController : MonoBehaviour
                 return;
         }
 
-        appliedUpgrades.Add(selectedIndex);
-        if (appliedUpgrades.Count == upgrades.Length)
+        appliedUpgrades.Add(selectedUpgrade);
+        if (appliedUpgrades.Count == numOfUpgrades)
             hasAllUpgrades = true;
 
         gameController.UpgradeApplied();
+        selectedUpgrade = null;
     }
 }

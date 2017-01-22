@@ -14,6 +14,8 @@ public class DestructionAnimationObject : DestructableObject
 
     public override void OnDeath()
     {
+        base.OnDeath();
+
         if (explosion != null && normal != null)
         {
             explosion.SetActive(true);

@@ -3,23 +3,27 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private GameController gameController;
 
-    [SerializeField]
     private CharacterController characterController;
-    [SerializeField]
     private PlayerMovement movement;
-    [SerializeField]
     private PlayerHealth health;
-    [SerializeField]
     private PlayerGunRotation gunRotation;
 
     [SerializeField]
-    private GameObject singleFireWeapon;
+    private AudioSource engineSound;
+    [SerializeField]
+    private AudioSource boostSound;
+
+    [SerializeField]
+    private GameObject armour;
+
     [SerializeField]
     private GameObject doubleFireWeapon;
-    private GameObject gunBarrelEnd;
+    [SerializeField]
+    private GameObject gunBarrelEndSingle;
+    [SerializeField]
+    private GameObject gunBarrelEndDouble;
 
     [SerializeField]
     private float carTranslationTime;
@@ -33,16 +37,33 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        gunBarrelEnd = singleFireWeapon.GetComponentInChildren<MachineGunShooting>().gameObject;
-        gunRotation.gunBarrelEnd = gunBarrelEnd.transform;
+        gameController = FindObjectOfType<GameController>();
+
+        characterController = GetComponent<CharacterController>();
+        movement = GetComponent<PlayerMovement>();
+        health = GetComponent<PlayerHealth>();
+        gunRotation = GetComponentInChildren<PlayerGunRotation>();
+    }
+
+    void Start()
+    {
+        armour.SetActive(false);
+        doubleFireWeapon.SetActive(false);
+        gunRotation.gunBarrelEnd = gunBarrelEndSingle.transform;
     }
 
     public void EnableInteraction(bool enabled)
     {
+        if (enabled)
+            engineSound.Play();
+        else
+            engineSound.Stop();
+
         characterController.enabled = enabled;
         movement.enabled = enabled;
         health.enabled = enabled;
-        gunBarrelEnd.SetActive(enabled);
+        gunBarrelEndSingle.SetActive(enabled);
+        gunBarrelEndDouble.SetActive(enabled);
     }
 
     public void ResetHealth()
@@ -62,7 +83,7 @@ public class PlayerController : MonoBehaviour
         Quaternion startRotation = transform.localRotation;
 
         Vector3 startScale = transform.localScale;
-        Vector3 endScale = startScale.x == 1 ? new Vector3(10, 10, 10) : new Vector3(1, 1, 1);
+        Vector3 endScale = new Vector3(1, 1, 1);
 
         float timeMoved = 0;
         while (timeMoved < carTranslationTime)
@@ -74,6 +95,18 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+
+    public void IsMoving()
+    {
+        engineSound.volume = 0.5f;
+    }
+
+    public void StoppedMoving()
+    {
+        engineSound.volume = 0.2f;
+    }
+
+
 
     // Items
 
@@ -113,6 +146,16 @@ public class PlayerController : MonoBehaviour
         Debug.Log("UseSpeedBoost");
         movement.speed = movement.speed * multiplicator;
         movement.speedBoostTimer = duration;
+        engineSound.Stop();
+
+        boostSound.time = 9.828f;
+        boostSound.Play();
+    }
+
+    public void SpeedBoostStopped()
+    {
+        boostSound.Stop();
+        engineSound.Play();
     }
 
     // Upgrades
@@ -124,8 +167,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyDoubleFireUpgrade()
     {
-        gunBarrelEnd = doubleFireWeapon.GetComponentInChildren<MachineGunShooting>().gameObject;
-        gunRotation.gunBarrelEnd = gunBarrelEnd.transform;
+        gunRotation.gunBarrelEnd = gunBarrelEndDouble.transform;
     }
 
     public void Death()

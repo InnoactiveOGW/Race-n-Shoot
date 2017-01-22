@@ -3,18 +3,19 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
+    private EnemyController enemyController;
     private NavMeshAgent navAgent;
-
     private Transform player;
     private PlayerHealth playerHealth;
     private EnemyHealth enemyHealth;
 
     void Awake()
     {
+        enemyController = GetComponent<EnemyController>();
+        navAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindWithTag("Player").transform;
         playerHealth = player.GetComponent<PlayerHealth>();
-        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Update()
@@ -26,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             navAgent.enabled = false;
+            enemyController.StopEngine();
         }
     }
 }

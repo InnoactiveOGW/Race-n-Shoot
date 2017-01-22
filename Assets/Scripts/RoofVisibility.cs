@@ -5,12 +5,17 @@ public class RoofVisibility : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private AudioSource openSound;
+    [SerializeField]
+    private AudioSource closeSound;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             HideRoof();
+            openSound.Play();
         }
     }
 
@@ -19,6 +24,7 @@ public class RoofVisibility : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             ShowRoof();
+            closeSound.Play();
         }
     }
 

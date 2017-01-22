@@ -5,6 +5,8 @@ using System.Collections;
 public class DestructableObject : Health
 {
     [SerializeField]
+    private bool destroyOnDeath = false;
+    [SerializeField]
     private SkinnedMeshRenderer smRenderer;
 
     public override void SetHealthUI()
@@ -20,6 +22,9 @@ public class DestructableObject : Health
 
     public override void OnDeath()
     {
-        gameObject.SetActive(false);
+        base.OnDeath();
+
+        if (destroyOnDeath)
+            Destroy(gameObject);
     }
 }

@@ -73,6 +73,7 @@ GameObject:
   - 65: {fileID: 65000013186229180}
   - 54: {fileID: 54000010366543952}
   - 114: {fileID: 114000013654012608}
+  - 82: {fileID: 82000013618117458}
   m_Layer: 0
   m_Name: HealthPack
   m_TagString: Untagged
@@ -270,6 +271,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0042157327, y: 0.012344371, z: 0.009845932}
   m_Center: {x: -0.000012607574, y: -0.000026359567, z: 0.00000943184}
+--- !u!82 &82000013618117458
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013907247026}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 68b26065726fbd947827e9a3bf25cd0c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114000013654012608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,5 +356,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6ecfc067e22408cb443f85a6e8d2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableType: 1
+  itemType: 1
   respawnTime: 15

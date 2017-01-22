@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyGunRotation : MonoBehaviour
 {
-    public float turnSpeed = 0.1F;
+    public float turnSpeed = 0.1f;
     private Transform player;
 
     void Awake()

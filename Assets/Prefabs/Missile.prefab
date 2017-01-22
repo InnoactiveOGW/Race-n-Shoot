@@ -970,7 +970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d314a8c799b4a80a8b7f8c37404c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 95000014289408276}
   flying: {fileID: 1000011782965494}
   fire: {fileID: 1000012991052416}
   fireBall: {fileID: 1000010941684434}
@@ -984,6 +983,8 @@ MonoBehaviour:
   - {fileID: 4000011707544146, guid: 4e1157dbcf12c934c9c655badf4a3339, type: 2}
   - {fileID: 4000011722230118, guid: 4e1157dbcf12c934c9c655badf4a3339, type: 2}
   - {fileID: 4000013286713206, guid: 4e1157dbcf12c934c9c655badf4a3339, type: 2}
+  flyingSound: {fileID: 0}
+  explosionSound: {fileID: 0}
   speed: 50
   damage: 10
 --- !u!114 &114000013530936338
@@ -1051,7 +1052,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6dd565a8e8ba242abbf8b41a43bd1467, type: 2}
+  - {fileID: 2100000, guid: ad34d7bc7f63cfe4f9a77e393fc7e590, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1098,7 +1099,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6dd565a8e8ba242abbf8b41a43bd1467, type: 2}
+  - {fileID: 2100000, guid: ad34d7bc7f63cfe4f9a77e393fc7e590, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1145,7 +1146,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6dd565a8e8ba242abbf8b41a43bd1467, type: 2}
+  - {fileID: 2100000, guid: ad34d7bc7f63cfe4f9a77e393fc7e590, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1315,7 +1316,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6dd565a8e8ba242abbf8b41a43bd1467, type: 2}
+  - {fileID: 2100000, guid: ad34d7bc7f63cfe4f9a77e393fc7e590, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1410,7 +1411,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6dd565a8e8ba242abbf8b41a43bd1467, type: 2}
+  - {fileID: 2100000, guid: ad34d7bc7f63cfe4f9a77e393fc7e590, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}

@@ -4,17 +4,18 @@ using System.Collections;
 public class ItemObject : MonoBehaviour
 {
     private ItemsController itemsController;
+    private BoxCollider boxCollider;
+    private MeshRenderer meshRenderer;
+    private MeshRenderer[] meshRenderers;
+    private AudioSource collectSound;
 
     [SerializeField]
-    private CollectableType collectableType;
+    private ItemType itemType;
 
     [SerializeField]
     private float respawnTime;
     private float respawnTimer;
 
-    private BoxCollider boxCollider;
-    private MeshRenderer meshRenderer;
-    private MeshRenderer[] meshRenderers;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class ItemObject : MonoBehaviour
         {
             meshRenderers = GetComponentsInChildren<MeshRenderer>();
         }
+        collectSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -56,7 +58,7 @@ public class ItemObject : MonoBehaviour
         if (other.gameObject.tag != "Player")
             return;
 
-        if (itemsController.CanCollectItem(collectableType))
+        if (itemsController.CanCollectItem(itemType))
         {
             boxCollider.enabled = false;
 
@@ -70,7 +72,8 @@ public class ItemObject : MonoBehaviour
                     childMeshRenderer.enabled = false;
             }
 
-            itemsController.CollectItem(collectableType);
+            collectSound.Play();
+            itemsController.CollectItem(itemType);
         }
     }
 }
