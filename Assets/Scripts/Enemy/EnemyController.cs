@@ -23,8 +23,6 @@ public class EnemyController : MonoBehaviour
 
     public void EnableInteraction(bool enabled)
     {
-        Debug.Log("Enemy EnableInteraction: " + enabled);
-
         if (enabled)
             stunnedSound.Stop();
         else

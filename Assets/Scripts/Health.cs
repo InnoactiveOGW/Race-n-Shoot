@@ -52,14 +52,7 @@ public abstract class Health : MonoBehaviour
     public virtual void OnDeath()
     {
         if (deathSound != null)
-        {
-            Debug.Log("death animation");
             deathSound.Play();
-        }
-        else
-        {
-            Debug.Log("no death animation");
-        }
     }
 
     public abstract void SetHealthUI();

@@ -5,6 +5,7 @@ using System.Collections;
 public class Upgrade : MonoBehaviour
 {
     private UpgradeController upgradeController;
+    private AudioSource selectionSound;
 
     [SerializeField]
     private Collider leftIndex;
@@ -19,6 +20,7 @@ public class Upgrade : MonoBehaviour
     void Awake()
     {
         upgradeController = FindObjectOfType<UpgradeController>();
+        selectionSound = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,6 +49,7 @@ public class Upgrade : MonoBehaviour
 
     public virtual void Select()
     {
+        selectionSound.Play();
         upgrade.SetActive(true);
         image.SetActive(false);
         imageSelected.SetActive(true);

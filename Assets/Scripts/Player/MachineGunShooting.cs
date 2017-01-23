@@ -15,7 +15,6 @@ public class MachineGunShooting : MonoBehaviour
     [SerializeField]
     private AudioSource[] shellSounds;
 
-    private int shootableMask;
     private float timer;
     private Ray shootRay;
     private RaycastHit shootHit;
@@ -24,8 +23,6 @@ public class MachineGunShooting : MonoBehaviour
     {
         gunLine = GetComponent<LineRenderer>();
         gunLight = GetComponent<Light>();
-
-        shootableMask = LayerMask.GetMask("Shootable");
     }
 
     void FixedUpdate()
@@ -68,7 +65,7 @@ public class MachineGunShooting : MonoBehaviour
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
 
-        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        if (Physics.Raycast(shootRay, out shootHit, range, LayerMask.GetMask("Shootable")))
         {
             Health health = shootHit.collider.gameObject.GetComponent<Health>();
             if (health != null)

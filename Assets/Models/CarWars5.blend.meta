@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 94a564f22fb1cb74580ad2e6fb7762d2
+timeCreated: 1485172287
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BezierCurve
+    100002: Big-Ramp
+    100004: Canon-Island
+    100006: //RootNode
+    100008: Ger_st
+    100010: Hebel
+    100012: house
+    100014: item-Island
+    100016: Lamp-array
+    100018: Lamps
+    100020: Main-island
+    100022: Main-island_MeshPart0
+    100024: Main-island_MeshPart1
+    100026: Portals
+    100028: Schild
+    100030: Schild_002
+    100032: screen
+    100034: Sign_001
+    100036: Text
+    100038: walls
+    100040: WORLD
+    400000: BezierCurve
+    400002: Big-Ramp
+    400004: Canon-Island
+    400006: //RootNode
+    400008: Ger_st
+    400010: Hebel
+    400012: house
+    400014: item-Island
+    400016: Lamp-array
+    400018: Lamps
+    400020: Main-island
+    400022: Main-island_MeshPart0
+    400024: Main-island_MeshPart1
+    400026: Portals
+    400028: Schild
+    400030: Schild_002
+    400032: screen
+    400034: Sign_001
+    400036: Text
+    400038: walls
+    400040: WORLD
+    2300000: BezierCurve
+    2300002: Big-Ramp
+    2300004: Canon-Island
+    2300006: Ger_st
+    2300008: Hebel
+    2300010: house
+    2300012: item-Island
+    2300014: Lamp-array
+    2300016: Lamps
+    2300018: Main-island_MeshPart0
+    2300020: Main-island_MeshPart1
+    2300022: Portals
+    2300024: Schild
+    2300026: Schild_002
+    2300028: screen
+    2300030: Text
+    2300032: walls
+    3300000: BezierCurve
+    3300002: Big-Ramp
+    3300004: Canon-Island
+    3300006: Ger_st
+    3300008: Hebel
+    3300010: house
+    3300012: item-Island
+    3300014: Lamp-array
+    3300016: Lamps
+    3300018: Main-island_MeshPart0
+    3300020: Main-island_MeshPart1
+    3300022: Portals
+    3300024: Schild
+    3300026: Schild_002
+    3300028: screen
+    3300030: Text
+    3300032: walls
+    4300000: Lamp-array
+    4300002: Lamps
+    4300004: item-Island
+    4300006: Canon-Island
+    4300008: Big-Ramp
+    4300010: Main-island_MeshPart0
+    4300012: Main-island_MeshPart1
+    4300014: Portals
+    4300016: house
+    4300018: screen
+    4300020: walls
+    4300022: Schild_002
+    4300024: Ger_st
+    4300026: BezierCurve
+    4300028: Hebel
+    4300030: Schild
+    4300032: Text
+    6400000: BezierCurve
+    6400002: Big-Ramp
+    6400004: Canon-Island
+    6400006: Ger_st
+    6400008: Hebel
+    6400010: house
+    6400012: item-Island
+    6400014: Lamp-array
+    6400016: Lamps
+    6400018: Main-island_MeshPart0
+    6400020: Main-island_MeshPart1
+    6400022: Portals
+    6400024: Schild
+    6400026: Schild_002
+    6400028: screen
+    6400030: Text
+    6400032: walls
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

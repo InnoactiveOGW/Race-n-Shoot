@@ -16,10 +16,15 @@ public enum ItemType
 
 public class ItemsController : MonoBehaviour
 {
+    private GameController gameController;
+    private PlayerController playerController;
+
+    [SerializeField]
+    private Renderer lightRenderer;
+    private Color[] lightColors;
+
     [HideInInspector]
     public ItemType currentItem = ItemType.None;
-
-    private PlayerController playerController;
 
     [SerializeField]
     private float invincibilityDuration;
@@ -35,7 +40,19 @@ public class ItemsController : MonoBehaviour
 
     void Awake()
     {
+        gameController = FindObjectOfType<GameController>();
         playerController = FindObjectOfType<PlayerController>();
+    }
+
+    void Start()
+    {
+        lightColors = new Color[lightRenderer.materials.Length];
+        for (int i = 0; i < lightRenderer.materials.Length; i++)
+        {
+            lightColors[i] = lightRenderer.materials[i].GetColor("_EmissionColor");
+        }
+
+        TurnItemLightsOn(false);
     }
 
     void Update()
@@ -44,7 +61,7 @@ public class ItemsController : MonoBehaviour
         if (trigger > 0f && currentItem != ItemType.None)
         {
             UseItem(currentItem);
-            currentItem = ItemType.None;
+            SetCurrentItem(ItemType.None);
         }
     }
 
@@ -71,15 +88,17 @@ public class ItemsController : MonoBehaviour
         }
         else
         {
-            currentItem = itemType;
+            SetCurrentItem(itemType);
             switch (currentItem)
             {
                 case ItemType.EMP:
                     Instantiate(empBall);
+                    TurnItemLightsOn(true);
                     break;
 
                 case ItemType.Lightning:
                     Instantiate(lightningBall);
+                    TurnItemLightsOn(true);
                     break;
 
                 default:
@@ -111,5 +130,45 @@ public class ItemsController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SetCurrentItem(ItemType itemType)
+    {
+        currentItem = itemType;
+        string itemText = "";
+        switch (itemType)
+        {
+            case ItemType.Invincibility:
+                itemText = "Invincibility";
+                break;
+
+            case ItemType.SpeedBoost:
+                itemText = "Speed Boost";
+                break;
+
+            case ItemType.EMP:
+                itemText = "EMP";
+                break;
+
+            case ItemType.Lightning:
+                itemText = "Lightning";
+                break;
+
+            default:
+                TurnItemLightsOn(false);
+                break;
+        }
+
+        gameController.itemText.text = itemText;
+    }
+
+    private void TurnItemLightsOn(bool on)
+    {
+        float intensity = on ? 1.5f : 0f;
+        for (int i = 0; i < lightRenderer.materials.Length; i++)
+        {
+            lightRenderer.materials[i].SetColor("_EmissionColor", lightColors[i] * intensity);
+        }
+        DynamicGI.UpdateMaterials(lightRenderer);
     }
 }

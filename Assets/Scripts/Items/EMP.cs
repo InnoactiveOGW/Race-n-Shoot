@@ -22,12 +22,11 @@ public class EMP : ThrowableItem
 
     public override void Execute(Vector3 position)
     {
-        Debug.Log("Execute EMP");
         rigidbody.isKinematic = true;
         renderer.enabled = false;
         StartCoroutine(ExpandShockwave());
         gameController.EMP();
-        itemsController.currentItem = ItemType.None;
+        itemsController.SetCurrentItem(ItemType.None);
     }
 
     private IEnumerator ExpandShockwave()

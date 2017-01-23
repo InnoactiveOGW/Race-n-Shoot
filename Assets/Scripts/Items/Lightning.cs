@@ -32,7 +32,6 @@ public class Lightning : ThrowableItem
 
     public override void Execute(Vector3 position)
     {
-        Debug.Log("Execute Lightning");
         rigidbody.isKinematic = true;
         renderer.enabled = false;
 
@@ -44,7 +43,7 @@ public class Lightning : ThrowableItem
 
         StartCoroutine(ExpandLightning(position));
 
-        itemsController.currentItem = ItemType.None;
+        itemsController.SetCurrentItem(ItemType.None);
     }
 
     private IEnumerator ExpandLightning(Vector3 position)

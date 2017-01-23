@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private AudioSource startSound;
 
     [SerializeField]
-    private Light mainLight;
+    private Renderer screenRenderer;
 
     private PlayerController playerController;
     [SerializeField]
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private Text scoreText;
+    public Text itemText;
     [SerializeField]
     private Text waveText;
     [SerializeField]
@@ -49,6 +50,8 @@ public class GameController : MonoBehaviour
     private GameObject upgrades;
     [SerializeField]
     private Transform upgradeCarPostion;
+    [SerializeField]
+    private Transform carStartPostion;
 
     [SerializeField]
     private Animator garageAnimator;
@@ -79,32 +82,48 @@ public class GameController : MonoBehaviour
         upgradeController.enabled = false;
         playerController.EnableInteraction(false);
 
+        scoreText.text = "";
+        itemText.text = "";
         waveText.text = "";
         gameOverText.text = "";
         restartText.text = "";
-        UpdateScore();
+
+        screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.black);
+        DynamicGI.UpdateMaterials(screenRenderer);
     }
 
     public void StartGame()
     {
         startSound.Play();
-        mainLight.enabled = true;
         StartCoroutine(StartGameCoroutine());
     }
 
     private IEnumerator StartGameCoroutine()
     {
-        yield return new WaitForSeconds(3);
+        float elapsedTime = 0.0f;
+        float duration = 3.0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.white * 2 * t);
+            DynamicGI.UpdateMaterials(screenRenderer);
+
+            yield return null;
+        }
+
         themeSong.Play();
         yield return new WaitForSeconds(3);
 
         int countdown = 5;
         while (countdown > 0)
         {
-            waveText.text = "" + countdown;
+            scoreText.text = "" + countdown;
             countdown -= 1;
             yield return new WaitForSeconds(1);
         }
+        scoreText.text = "";
 
         StartCoroutine(SpawnWave());
         playerController.EnableInteraction(true);
@@ -112,17 +131,14 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (restart)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene("Map1");
-            }
-        }
+        if (restart && OVRInput.Get(OVRInput.Button.One))
+            SceneManager.LoadScene("Map1");
     }
 
     private IEnumerator SpawnWave()
     {
+        themeSong.volume = 0.5f;
+
         waveCount += 1;
         waveText.text = "Wave " + waveCount;
         garageAnimator.SetTrigger("Open");
@@ -172,7 +188,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
     }
 
     private void WaveFinished()
@@ -191,6 +207,7 @@ public class GameController : MonoBehaviour
 
     private void ShowUpgrades()
     {
+        themeSong.volume = 0.5f;
         upgrades.SetActive(true);
 
         playerController.EnableInteraction(false);
@@ -204,7 +221,7 @@ public class GameController : MonoBehaviour
         upgradeController.enabled = false;
         upgrades.SetActive(false);
 
-        playerController.MoveTo(null);
+        playerController.MoveTo(carStartPostion);
         playerController.EnableInteraction(true);
 
         StartCoroutine(SpawnWave());
@@ -217,21 +234,46 @@ public class GameController : MonoBehaviour
 
     public void EMP()
     {
-        themeSong.Pause();
         screenInterferenceSound.Play();
-        StartCoroutine(EMPCoroutine());
-    }
-
-    private IEnumerator EMPCoroutine()
-    {
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyController>().EnableInteraction(false);
         }
 
-        yield return new WaitForSeconds(empDuration);
+        StartCoroutine(EMPCoroutine());
+    }
 
-        themeSong.Play();
+    private IEnumerator EMPCoroutine()
+    {
+        int counter = 0;
+        float flickerDuration = 0.15f;
+        int totalFlickers = Mathf.RoundToInt(empDuration / flickerDuration);
+
+        while (counter < totalFlickers)
+        {
+            float elapsedTime = 0.0f;
+            while (elapsedTime < flickerDuration)
+            {
+                float startIntensity = counter % 2 == 0 ? 0.2f : 0.3f;
+                float endIntensity = counter % 2 == 0 ? 0.1f : -0.1f;
+
+                elapsedTime += Time.deltaTime;
+                float t = elapsedTime / flickerDuration;
+
+                screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.white * (startIntensity + endIntensity * t));
+                DynamicGI.UpdateMaterials(screenRenderer);
+
+                yield return null;
+            }
+
+            counter += 1;
+            yield return null;
+        }
+        Debug.Log("EMP Over");
+
+        screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.white * 2);
+        DynamicGI.UpdateMaterials(screenRenderer);
+
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyController>().EnableInteraction(true);
@@ -245,10 +287,14 @@ public class GameController : MonoBehaviour
 
     private IEnumerator GameOver()
     {
+        themeSong.volume = 1;
+
+        itemText.text = scoreText.text;
+        scoreText.text = "";
         gameOverText.text = "Game Over!";
         yield return new WaitForSeconds(3);
         gameOverText.text = "";
-        restartText.text = "Press 'R' for Restart";
+        restartText.text = "Press 'A' to restart";
         restart = true;
     }
 }

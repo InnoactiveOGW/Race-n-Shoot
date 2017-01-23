@@ -1675,6 +1675,8 @@ ModelImporter:
     4300662: Hebel
     4300664: Schild
     4300666: Text
+    6400000: Cube_149
+    6400002: Floor
     7400000: Default Take
     7400002: Armature_001Action
     7400004: Armature_002Action
@@ -1754,10 +1756,10 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -1771,7 +1773,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

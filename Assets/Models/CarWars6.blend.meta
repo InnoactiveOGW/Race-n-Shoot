@@ -1,0 +1,117 @@
+fileFormatVersion: 2
+guid: d6b260167469739488f38ef1621e8e5d
+timeCreated: 1485185248
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: clouds
+    100004: garage-doors
+    100006: Hebel
+    100008: Lamp-array
+    100010: Lamps-sign-main
+    100012: Schild
+    100014: Small-Lamps
+    400000: //RootNode
+    400002: clouds
+    400004: garage-doors
+    400006: Hebel
+    400008: Lamp-array
+    400010: Lamps-sign-main
+    400012: Schild
+    400014: Small-Lamps
+    2300000: clouds
+    2300002: garage-doors
+    2300004: Hebel
+    2300006: Lamp-array
+    2300008: Lamps-sign-main
+    2300010: Schild
+    2300012: Small-Lamps
+    3300000: clouds
+    3300002: garage-doors
+    3300004: Hebel
+    3300006: Lamp-array
+    3300008: Lamps-sign-main
+    3300010: Schild
+    3300012: Small-Lamps
+    4300000: Lamps-sign-main
+    4300002: Lamp-array
+    4300004: Small-Lamps
+    4300006: Hebel
+    4300008: Schild
+    4300010: clouds
+    4300012: garage-doors
+    6400000: clouds
+    6400002: garage-doors
+    6400004: Hebel
+    6400006: Lamp-array
+    6400008: Lamps-sign-main
+    6400010: Schild
+    6400012: Small-Lamps
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

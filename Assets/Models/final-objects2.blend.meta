@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: f4108bcce1856be4fb869a1d67ab8c60
+timeCreated: 1485183225
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Hebel
+    100004: Lamps-sign-main
+    100006: Schild
+    100008: tre11
+    100010: tree1
+    100012: tree10
+    100014: tree12
+    100016: tree13
+    100018: tree14
+    100020: tree15
+    100022: tree16
+    100024: tree17
+    100026: tree18
+    100028: tree19
+    100030: tree2
+    100032: tree20
+    100034: tree21
+    100036: tree22
+    100038: tree23
+    100040: tree24
+    100042: tree25
+    100044: tree26
+    100046: tree27
+    100048: tree28
+    100050: tree3
+    100052: tree4
+    100054: tree5
+    100056: tree6
+    100058: tree7
+    100060: tree8
+    100062: tree9
+    100064: Trees
+    400000: //RootNode
+    400002: Hebel
+    400004: Lamps-sign-main
+    400006: Schild
+    400008: tre11
+    400010: tree1
+    400012: tree10
+    400014: tree12
+    400016: tree13
+    400018: tree14
+    400020: tree15
+    400022: tree16
+    400024: tree17
+    400026: tree18
+    400028: tree19
+    400030: tree2
+    400032: tree20
+    400034: tree21
+    400036: tree22
+    400038: tree23
+    400040: tree24
+    400042: tree25
+    400044: tree26
+    400046: tree27
+    400048: tree28
+    400050: tree3
+    400052: tree4
+    400054: tree5
+    400056: tree6
+    400058: tree7
+    400060: tree8
+    400062: tree9
+    400064: Trees
+    2300000: Hebel
+    2300002: Lamps-sign-main
+    2300004: Schild
+    2300006: tree17
+    2300008: tree18
+    2300010: tree19
+    2300012: tree4
+    3300000: Hebel
+    3300002: Lamps-sign-main
+    3300004: Schild
+    3300006: tree17
+    3300008: tree18
+    3300010: tree19
+    3300012: tree4
+    4300000: Lamps-sign-main
+    4300002: Hebel
+    4300004: Schild
+    4300006: tre11
+    4300008: tree1
+    4300010: tree2
+    4300012: tree3
+    4300014: tree4
+    4300016: tree5
+    4300018: tree6
+    4300020: tree7
+    4300022: tree8
+    4300024: tree9
+    4300026: tree10
+    4300028: tree12
+    4300030: tree13
+    4300032: tree14
+    4300034: tree15
+    4300036: tree16
+    4300038: tree17
+    4300040: tree18
+    4300042: tree19
+    4300044: tree20
+    4300046: tree21
+    4300048: tree22
+    4300050: tree23
+    4300052: tree24
+    4300054: tree25
+    4300056: tree26
+    4300058: tree27
+    4300060: tree28
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: tre11
+    13700002: tree1
+    13700004: tree10
+    13700006: tree12
+    13700008: tree13
+    13700010: tree14
+    13700012: tree15
+    13700014: tree16
+    13700016: tree2
+    13700018: tree20
+    13700020: tree21
+    13700022: tree22
+    13700024: tree23
+    13700026: tree24
+    13700028: tree25
+    13700030: tree26
+    13700032: tree27
+    13700034: tree28
+    13700036: tree3
+    13700038: tree5
+    13700040: tree6
+    13700042: tree7
+    13700044: tree8
+    13700046: tree9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
