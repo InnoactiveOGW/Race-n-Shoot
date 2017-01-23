@@ -396,7 +396,7 @@ MonoBehaviour:
   animator: {fileID: 95000011901158986}
   lightning: {fileID: 1000011007502408}
   smRenderer: {fileID: 137000011301154624}
-  damageRadius: 20
+  damageRadius: 15
   maxDamage: 200
 --- !u!135 &135000013530551086
 SphereCollider:

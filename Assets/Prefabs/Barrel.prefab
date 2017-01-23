@@ -1394,7 +1394,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d68298ecb43b43445bcc3d8a27ac5952, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c070431c4f590f4aba305f4356d188e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1404,9 +1404,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1430,7 +1430,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1447,7 +1447,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1510,6 +1510,7 @@ MonoBehaviour:
   isDead: 0
   hitSound: {fileID: 0}
   deathSound: {fileID: 82000010344067986}
+  destroyOnDeath: 0
   smRenderer: {fileID: 0}
   normal: {fileID: 1000013816290016}
   explosion: {fileID: 1000012667097174}

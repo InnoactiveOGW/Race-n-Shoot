@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     private EnemyGunRotation gunRotation;
     private EnemyShooting shooting;
     [SerializeField]
-    private AudioSource[] stunnedSounds;
+    private AudioSource stunnedSound;
     private AudioSource playingSound;
     [SerializeField]
     private AudioSource engineSound;
@@ -23,21 +23,13 @@ public class EnemyController : MonoBehaviour
 
     public void EnableInteraction(bool enabled)
     {
-        if (enabled)
-        {
-            if (playingSound != null)
-            {
-                playingSound.Stop();
-            }
-        }
-        else
-        {
-            int soundIndex = Random.Range(0, stunnedSounds.Length - 1);
-            playingSound = stunnedSounds[soundIndex];
-            playingSound.Play();
-        }
-
         Debug.Log("Enemy EnableInteraction: " + enabled);
+
+        if (enabled)
+            stunnedSound.Stop();
+        else
+            stunnedSound.Play();
+
         navAgent.enabled = enabled;
         movement.enabled = enabled;
         gunRotation.enabled = enabled;

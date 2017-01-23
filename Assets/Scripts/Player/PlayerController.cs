@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         characterController.enabled = enabled;
         movement.enabled = enabled;
         health.enabled = enabled;
+        gunRotation.enabled = enabled;
         gunBarrelEndSingle.SetActive(enabled);
         gunBarrelEndDouble.SetActive(enabled);
     }

@@ -6,6 +6,9 @@ public class RoofVisibility : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
+    private AudioReverbZone reverbZone;
+
+    [SerializeField]
     private AudioSource openSound;
     [SerializeField]
     private AudioSource closeSound;
@@ -15,7 +18,6 @@ public class RoofVisibility : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             HideRoof();
-            openSound.Play();
         }
     }
 
@@ -24,19 +26,22 @@ public class RoofVisibility : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             ShowRoof();
-            closeSound.Play();
         }
     }
 
     private void HideRoof()
     {
         Debug.Log("HideRoof");
+        reverbZone.enabled = true;
         animator.SetTrigger("Open");
+        openSound.Play();
     }
 
     private void ShowRoof()
     {
         Debug.Log("ShowRoof");
+        reverbZone.enabled = false;
         animator.SetTrigger("Close");
+        closeSound.Play();
     }
 }

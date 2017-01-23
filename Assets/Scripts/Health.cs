@@ -30,6 +30,9 @@ public abstract class Health : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
+        if (currentHealth <= 0)
+            return;
+
         if (hitSound != null)
             hitSound.Play();
 

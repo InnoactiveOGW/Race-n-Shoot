@@ -7,6 +7,11 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    private AudioSource themeSong;
+    [SerializeField]
+    private AudioSource startSound;
+
+    [SerializeField]
     private Light mainLight;
 
     private PlayerController playerController;
@@ -72,19 +77,37 @@ public class GameController : MonoBehaviour
     void Start()
     {
         upgradeController.enabled = false;
+        playerController.EnableInteraction(false);
 
         waveText.text = "";
         gameOverText.text = "";
         restartText.text = "";
         UpdateScore();
-
-        StartCoroutine(SpawnWave());
     }
 
     public void StartGame()
     {
+        startSound.Play();
         mainLight.enabled = true;
+        StartCoroutine(StartGameCoroutine());
+    }
+
+    private IEnumerator StartGameCoroutine()
+    {
+        yield return new WaitForSeconds(3);
+        themeSong.Play();
+        yield return new WaitForSeconds(3);
+
+        int countdown = 5;
+        while (countdown > 0)
+        {
+            waveText.text = "" + countdown;
+            countdown -= 1;
+            yield return new WaitForSeconds(1);
+        }
+
         StartCoroutine(SpawnWave());
+        playerController.EnableInteraction(true);
     }
 
     void Update()
@@ -104,14 +127,14 @@ public class GameController : MonoBehaviour
         waveText.text = "Wave " + waveCount;
         garageAnimator.SetTrigger("Open");
         garageOpenSound.Play();
+
         yield return new WaitForSeconds(waveWait);
-        waveText.text = "";
 
         if (waveCount > 1)
             foreach (GameObject enemy in enemies)
                 Destroy(enemy);
-        enemies = new List<GameObject>();
 
+        enemies = new List<GameObject>();
         for (int i = 0; i < waveCount; i++)
         {
             Transform spawn = spawns[i % 3];
@@ -194,6 +217,7 @@ public class GameController : MonoBehaviour
 
     public void EMP()
     {
+        themeSong.Pause();
         screenInterferenceSound.Play();
         StartCoroutine(EMPCoroutine());
     }
@@ -207,6 +231,7 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(empDuration);
 
+        themeSong.Play();
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyController>().EnableInteraction(true);

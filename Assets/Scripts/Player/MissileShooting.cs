@@ -87,6 +87,8 @@ public class MissileShooting : MonoBehaviour
 
         flying.SetActive(true);
         flyingSound.Play();
+
+        Destroy(gameObject, 7);
     }
 
     private Vector3[] GetEnemyVectors(List<GameObject> enemyTargets)
@@ -129,9 +131,13 @@ public class MissileShooting : MonoBehaviour
         if (!enabled)
             return;
 
-        StartCoroutine(Rotate(Quaternion.LookRotation(closestEnemy.transform.position - transform.position), 0.1f));
-
         float distance = Vector3.Distance(transform.position, closestEnemy.transform.position);
+        if (distance <= 0)
+        {
+            Explode();
+        }
+
+        StartCoroutine(Rotate(Quaternion.LookRotation(closestEnemy.transform.position - transform.position), 0.1f));
         LTDescr tweenId = LeanTween.move(this.gameObject, closestEnemy.transform.position, distance / speed);
         tweenId.setOnComplete(tweenCompleted);
     }
@@ -184,11 +190,16 @@ public class MissileShooting : MonoBehaviour
         if (other.gameObject.tag == "Player")
             return;
 
-        flyingSound.Stop();
-
         Health health = other.GetComponent<Health>();
         if (health != null)
             health.TakeDamage(damage);
+
+        Explode();
+    }
+
+    private void Explode()
+    {
+        flyingSound.Stop();
 
         LeanTween.cancelAll();
         transform.rotation = Quaternion.identity;
@@ -201,6 +212,5 @@ public class MissileShooting : MonoBehaviour
 
         Destroy(gameObject, 5);
     }
-
 
 }
