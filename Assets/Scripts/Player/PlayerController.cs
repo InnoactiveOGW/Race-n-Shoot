@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private AudioSource boostSound;
 
     [SerializeField]
+    private GameObject headlights;
+
+    [SerializeField]
     private GameObject armour;
 
     [SerializeField]
@@ -157,6 +160,11 @@ public class PlayerController : MonoBehaviour
     {
         boostSound.Stop();
         engineSound.Play();
+    }
+
+    public void ShowHeadlights(bool show)
+    {
+        headlights.SetActive(show);
     }
 
     // Upgrades

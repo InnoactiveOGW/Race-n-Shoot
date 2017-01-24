@@ -24,9 +24,15 @@ public class EnemyController : MonoBehaviour
     public void EnableInteraction(bool enabled)
     {
         if (enabled)
+        {
             stunnedSound.Stop();
+            engineSound.Play();
+        }
         else
+        {
+            StopEngine();
             stunnedSound.Play();
+        }
 
         navAgent.enabled = enabled;
         movement.enabled = enabled;

@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a59c9ac7e5bcc49b422bd88c258702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabbable: {fileID: 114000010460509068}
   hitSound: {fileID: 82000011102070898}
   animator: {fileID: 95000011901158986}
   lightning: {fileID: 1000011007502408}

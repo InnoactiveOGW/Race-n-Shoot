@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
     private float empDuration = 5f;
 
     private int score;
+    private bool isDead;
     private bool restart;
 
     void Awake()
@@ -90,12 +91,13 @@ public class GameController : MonoBehaviour
 
         screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.black);
         DynamicGI.UpdateMaterials(screenRenderer);
+
+        startSound.Play();
+        StartCoroutine(StartGameCoroutine());
     }
 
     public void StartGame()
     {
-        startSound.Play();
-        StartCoroutine(StartGameCoroutine());
     }
 
     private IEnumerator StartGameCoroutine()
@@ -176,14 +178,15 @@ public class GameController : MonoBehaviour
 
     public void EnemyKilled(int value)
     {
+        if (isDead)
+            return;
+
         score += value;
         UpdateScore();
 
         enemyCount -= 1;
         if (enemyCount == 0)
-        {
             WaveFinished();
-        }
     }
 
     private void UpdateScore()
@@ -241,6 +244,7 @@ public class GameController : MonoBehaviour
         }
 
         StartCoroutine(EMPCoroutine());
+        playerController.ShowHeadlights(true);
     }
 
     private IEnumerator EMPCoroutine()
@@ -273,6 +277,7 @@ public class GameController : MonoBehaviour
 
         screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.white * 2);
         DynamicGI.UpdateMaterials(screenRenderer);
+        playerController.ShowHeadlights(false);
 
         foreach (GameObject enemy in enemies)
         {
@@ -282,6 +287,7 @@ public class GameController : MonoBehaviour
 
     public void PlayerDied()
     {
+        isDead = true;
         StartCoroutine(GameOver());
     }
 

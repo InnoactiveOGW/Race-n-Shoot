@@ -9,6 +9,9 @@ public class PlayerHealth : FireAnimationObject
     private Renderer[] renderers;
 
     [SerializeField]
+    private AudioLowPassFilter lowPassFilter;
+
+    [SerializeField]
     private float regenSpeed = 1f;
 
     [SerializeField]
@@ -116,9 +119,20 @@ public class PlayerHealth : FireAnimationObject
             SetArmorUI();
         }
 
+        float relativeHealth = currentHealth / startingHealth;
+        if (relativeHealth < 0.4f)
+        {
+            lowPassFilter.enabled = true;
+            lowPassFilter.cutoffFrequency = 300 + (4700 * (relativeHealth / 0.4f));
+        }
+        else
+        {
+            lowPassFilter.enabled = false;
+        }
+
         foreach (Renderer renderer in renderers)
         {
-            renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - currentHealth / startingHealth);
+            renderer.material.color = Color.Lerp(fullHealthColor, zeroHealthColor, 1 - relativeHealth);
         }
     }
 
@@ -163,6 +177,7 @@ public class PlayerHealth : FireAnimationObject
 
     public override void OnDeath()
     {
+        lowPassFilter.enabled = false;
         base.OnDeath();
         playerController.Death();
     }

@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae377e7a00724d14187131f6b4ecbe80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabbable: {fileID: 114000012395850002}
   hitSound: {fileID: 82000012800455618}
   shockwave: {fileID: 1000013330201788}
 --- !u!114 &114000012395850002
