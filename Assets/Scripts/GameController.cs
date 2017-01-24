@@ -92,12 +92,12 @@ public class GameController : MonoBehaviour
         screenRenderer.sharedMaterial.SetColor("_EmissionColor", Color.black);
         DynamicGI.UpdateMaterials(screenRenderer);
 
-        startSound.Play();
-        StartCoroutine(StartGameCoroutine());
     }
 
     public void StartGame()
     {
+        startSound.Play();
+        StartCoroutine(StartGameCoroutine());
     }
 
     private IEnumerator StartGameCoroutine()
