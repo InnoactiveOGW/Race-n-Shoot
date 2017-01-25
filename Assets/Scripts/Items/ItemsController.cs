@@ -61,7 +61,6 @@ public class ItemsController : MonoBehaviour
         if (trigger > 0f && currentItem != ItemType.None)
         {
             UseItem(currentItem);
-            SetCurrentItem(ItemType.None);
         }
     }
 
@@ -113,18 +112,22 @@ public class ItemsController : MonoBehaviour
         {
             case ItemType.HealthPack:
                 playerController.UseHealthPack();
+                SetCurrentItem(ItemType.None);
                 break;
 
             case ItemType.AmunitionPack:
                 playerController.UseAmunition();
+                SetCurrentItem(ItemType.None);
                 break;
 
             case ItemType.Invincibility:
                 playerController.UseInvincibility(invincibilityDuration);
+                SetCurrentItem(ItemType.None);
                 break;
 
             case ItemType.SpeedBoost:
                 playerController.UseSpeedBoost(speedBoostDuration, speedBoostMultiplicator);
+                SetCurrentItem(ItemType.None);
                 break;
 
             default:
